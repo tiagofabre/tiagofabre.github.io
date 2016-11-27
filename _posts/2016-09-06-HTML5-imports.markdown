@@ -20,7 +20,7 @@ A importação de 'scripts' no HTML acontece atraves da tag `script` ([Mais info
 {% endhighlight %}
 
 ### Solução
-Com o HTML5 é possivel resolver este problema através dos atributos 'async' e 'defer' onde o 'async' faz com que o script seja carregado em pararelo com os demais e o 'defer' faz com que o script seja executado apena após a renderização do documento.
+Com o HTML5 é possivel resolver este problema através dos atributos `async` e `defer` onde o `async` faz com que o script seja carregado em pararelo com os demais e o `defer` faz com que o script seja executado apena após a renderização do documento.
 
 {% highlight html %}
 <script async defer src="exemplo1.js"></script>
@@ -31,7 +31,7 @@ Com o HTML5 é possivel resolver este problema através dos atributos 'async' e 
 ### Relacionados
 
 Importar libs essenciais de renderização (como jQuery) de forma asincrona [link][async-advanced]
-Introdução a 'Web Components' [link][web-components]
+Introdução a `Web Components` [link][web-components]
 
 [mdn-script]: https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/script
 [async-advanced]: https://varvy.com/pagespeed/critical-render-path.html
