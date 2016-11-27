@@ -6,17 +6,20 @@ categories: html javascript ecmascript
 ---
 
 ### Problema
-O carregamento dos scripts no HTML estão bloqueando a renderização;
-A execução do script acontece antes mas deveria ser após a renderização;
+<ul>
+<li>O carregamento dos scripts no HTML estão bloqueando a renderização</li>
+<li>A execução do script acontece antes mas deveria ser após a renderização</li>
+</ul>
 
-
-A importação de 'scripts' no HTML acontece atraves da tag <i><b>script</b></i> ([Mais informações][mdn-script]) Porém a importação de multiplos scripts causa o problema de renderização bloqueante ou 'render blocking'
+A importação de 'scripts' no HTML acontece atraves da tag `script` ([Mais informações][mdn-script]) Porém a importação de multiplos scripts causa o problema de renderização bloqueante ou 'render blocking'
 
 {% highlight html %}
 <script src="exemplo1.js"></script>
 <script src="exemplo2.js"></script>
 <script src="exemplo3.js"></script>
 {% endhighlight %}
+
+### Solução
 Com o HTML5 é possivel resolver este problema através dos atributos 'async' e 'defer' onde o 'async' faz com que o script seja carregado em pararelo com os demais e o 'defer' faz com que o script seja executado apena após a renderização do documento.
 
 {% highlight html %}
