@@ -1,0 +1,38 @@
+---
+layout: post
+title:  "Byobu"
+date:	2016-11-28 12:16:34 -0300
+categories: linux
+---
+
+### Problema
+<ul>
+<li>Ao a cessa o servidor através de `ssh` é preciso iniciar as aplicações que preciso com `nohup`, o que dificulta caso eu queira matar os processo já que o processo é feito manualmente</li>
+</ul>
+
+Após acessar o `ssh` do servidor sempre é preciso acessar o diretório do projeto, inicializar os serviços que preciso utilizando `nohup` para que eles não sejam finalizados após finalização do ssh. Caso eu feche o ssh e precise voltar para ver a output da aplicação ou reiniciar o serviço é preciso listar todos os processo e seus respectivos PID's para dar `kill`. O que é uma tarefa muito onerosa.
+
+### Solução
+É possível resolver este problema com o <b>byobu</b> que é uma multiplexador de janelas/terminal onde para cada tarefa que se deseja iniciar pode-se criar uma nova janela e acompanhar a output das respectivas aplicações.
+
+A instalação pode ser feita através dos package managers: `apt`, `brew`, `pacman`, `yum`, `apk` e `emerge`.
+
+	`sudo apt-get install byobu`
+
+	`brew install byobu`
+
+Após a instalação é possível criar novas instâncias de janelas através da tecla `F2` e a navegação entre as instâncias através das teclas `F3` e `F4` e a destruição de janelas através do comando `Ctrl + F6`.
+
+Para dar um Detach no <b>byobu</b> apenas pressiona `F6`.
+
+Lista completa de comandos do <b>byobu</b>: [Byobu KEYBINDINGS][Ubuntu-Manual]
+
+### Relacionados
+
+
+- Documentação Byobu [link][Byobu-Documentation]
+- Ubuntu Manual [link][Ubuntu-Manual]
+	
+
+[Byobu-Documentation]: http://byobu.co/documentation.html
+[Ubuntu-Manual]: http://manpages.ubuntu.com/manpages/zesty/en/man1/byobu.1.html#contenttoc8
