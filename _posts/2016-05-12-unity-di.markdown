@@ -8,9 +8,9 @@ categories: unity3d Design-patterns
 
 ## Dependency Injection
 
-É um padrão que prega o tratamento de dependências através de um arquivo externo, ou seja qualquer dependencia que uma classe tem é gerenciada por um arquivo, o que faz com que as classes nunca 'saibam' como acessar uma dependência.
+É um padrão que prega o tratamento de dependências através de um arquivo externo, ou seja qualquer dependência que uma classe tem é gerenciada por um arquivo, o que faz com que as classes nunca 'saibam' como acessar uma dependência.
 
-As consequencias desse desacoplamento são:
+As consequências desse desacoplamento são:
 
 - Maior indice de reaproveitamento de código entre projetos
 - Facilidade na criação de Moocs para testes unitários
@@ -18,7 +18,7 @@ As consequencias desse desacoplamento são:
 
 ## Zenject
 
-Zenject é um framework de incejção de dependência que suporta a unity engine e seusa peculidaridades, inspirado no framework Ninject para ASP.NET possui as seguintes features:
+Zenject é um framework de injeção de dependência que suporta a unity engine e suas peculiaridades, inspirado no framework Ninject para ASP.NET possui as seguintes features:
 
 - Injection into normal C# classes or MonoBehaviours
 - Constructor injection (can tag constructor if there are multiple)
@@ -41,11 +41,11 @@ Zenject é um framework de incejção de dependência que suporta a unity engine
 
 ## Utilização
 
-Um exemplo simples de como se utiliza a injeção de dependencia:
+Um exemplo simples de como se utiliza a injeção de dependência:
 
 
  {% highlight c# %}
-//Sem ingejção de denpendencias
+//Sem injeção de denpendências
 public class Foo
 {
     ISomeService _service;
@@ -65,7 +65,7 @@ public class Foo
 
 
 
-// Com injeção de dependencias
+// Com injeção de dependências
 public class Foo
 {
     ISomeService _service;
@@ -83,12 +83,12 @@ public class Foo
 }
 {% endhighlight %}
 
-O que se pode perceber do código acima é que se utilza Interfaces para que o Zenject injete as classes com as implementações necessárias, onde em determinado momento pode-se injetar uma implementação de teste para a realização das baterias de teste e em ambiente de produção utilizar a implementação real.
+O que se pode perceber do código acima é que se utiliza Interfaces para que o Zenject injete as classes com as implementações necessárias, onde em determinado momento pode-se injetar uma implementação de teste para a realização das baterias de teste e em ambiente de produção utilizar a implementação real.
 
 
 	### Registrando as dependências
 
-	Um simples HelloWorld com o reistro das dependências pode ser analisado abaixo:
+	Um simples HelloWorld com o registro das dependências pode ser analisado abaixo:
 
 {% highlight c# %}
 using Zenject;
