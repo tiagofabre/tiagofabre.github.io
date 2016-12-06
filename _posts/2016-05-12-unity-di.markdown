@@ -1,0 +1,183 @@
+---
+layout: post
+title:  "Unity3d e Dependency Injection"
+date:	2016-12-05 21:37:09 -0300
+comments: true
+categories: unity3d Design-patterns
+---
+
+## Dependency Injection
+
+É um padrão que prega o tratamento de dependências através de um arquivo externo, ou seja qualquer dependencia que uma classe tem é gerenciada por um arquivo, o que faz com que as classes nunca 'saibam' como acessar uma dependência.
+
+As consequencias desse desacoplamento são:
+
+- Maior indice de reaproveitamento de código entre projetos
+- Facilidade na criação de Moocs para testes unitários
+- Facilidade em seguir o princípio de responsabilidade única (SOLID)
+
+## Zenject
+
+Zenject é um framework de incejção de dependência que suporta a unity engine e seusa peculidaridades, inspirado no framework Ninject para ASP.NET possui as seguintes features:
+
+- Injection into normal C# classes or MonoBehaviours
+- Constructor injection (can tag constructor if there are multiple)
+- Field injection
+- Property injection
+- Injection via [PostInject] method parameters
+- Conditional binding (eg. by type, by name, etc.)
+- Optional dependencies
+- Support for building dynamic object graphs at runtime using factories
+- Injection across different Unity scenes
+- Support for global, project-wide bindings to add dependencies for all scenes
+- "Scene Decorators" which allow adding functionality to a different scene without changing it directly
+- Ability to validate object graphs at editor time including dynamic object graphs created via factories
+- Nested Containers aka Sub-Containers
+- Support for Commands and Signals
+- Ability to easily define discrete 'islands' of dependencies using 'Facade' classes
+- Ability to automatically add bindings by dropping ZenjectAutoBinding on a game object in your scene
+- Auto-Mocking using the Moq library
+
+
+## Utilização
+
+Um exemplo simples de como se utiliza a injeção de dependencia:
+
+
+ {% highlight c# %}
+//Sem ingejção de denpendencias
+public class Foo
+{
+    ISomeService _service;
+
+    public Foo()
+    {
+        _service = new SomeService();
+    }
+
+    public void DoSomething()
+    {
+        _service.PerformTask();
+        ...
+    }
+}
+
+
+
+
+// Com injeção de dependencias
+public class Foo
+{
+    ISomeService _service;
+
+    public Foo(ISomeService service)
+    {
+        _service = service;
+    }
+
+    public void DoSomething()
+    {
+        _service.PerformTask();
+        ...
+    }
+}
+{% endhighlight %}
+
+O que se pode perceber do código acima é que se utilza Interfaces para que o Zenject injete as classes com as implementações necessárias, onde em determinado momento pode-se injetar uma implementação de teste para a realização das baterias de teste e em ambiente de produção utilizar a implementação real.
+
+
+	### Registrando as dependências
+
+	Um simples HelloWorld com o reistro das dependências pode ser analisado abaixo:
+
+{% highlight c# %}
+using Zenject;
+using UnityEngine;
+using System.Collections;
+
+public class TestInstaller : MonoInstaller
+{
+    public override void InstallBindings()
+    {
+        Container.Bind<Foo>().ToSingle();
+	Container.Bind<IBar>().ToSingle<Bar>();
+    }
+}
+
+public class Foo
+{
+    IBar _bar;
+
+    public Foo(IBar bar)
+    {
+        _bar = bar;
+    }
+}
+
+{% endhighlight %}
+
+A classe Foo receberá uma unica instância de Bar e qualquer classe que precisar da depenência de Bar receberá a mesma dependência, o que pode mudar através de outros binds caso precise criar uma nova instância sempre que alguem precisar.
+
+
+### Binds
+
+
+
+ - ToSingle - Injeta como singleton
+
+ 	Container.Bind<IFoo>().ToSingle<Foo>();
+	Container.Bind<IBar>().ToSingle<Foo>();
+
+
+ - ToInstance - Injeta uma instâncai específica
+
+ 	Container.Bind<Foo>().ToInstance(new Foo());
+	Container.Bind<string>().ToInstance("foo");
+	Container.Bind<int>().ToInstance(42);
+
+ - ToTransient - Injeta uma instância nova do objeto
+
+	Container.Bind<IFoo>().ToTransient<Foo>();
+
+ - ToSinglePrefab - Injeta um prefab da unity
+
+ 	Container.Bind<FooMonoBehaviour>().ToSinglePrefab(PrefabGameObject);
+
+
+ Existem muitos binds que trabalham com prefabs, classes, metodos e propriedades, que podem ser verificados na [documentação](https://github.com/modesttree/Zenject/tree/f0dd30ad451dcbc3eb17e636455a6c89b14ad537#list-bindings)
+
+
+ Um CheatSheet muito útil com is binds do Zenject
+ [CheatSheet](https://github.com/modesttree/Zenject/tree/f0dd30ad451dcbc3eb17e636455a6c89b14ad537#installers-cheat-sheet)
+
+
+## Referências
+
+[Zenject docs](https://github.com/modesttree/Zenject)
+
+{% if page.comments %}
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//https-tiagofabre-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+
+
+{% endif %}
