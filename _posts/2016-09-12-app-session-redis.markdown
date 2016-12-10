@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Aplicações que utilizam Session rodando em cluster"
+title:  "Sessão e redis"
 date:	2016-12-09 21:49:09 -0300
 comments: true
 categories: web session, web developement
@@ -21,21 +21,23 @@ Uma forma de fazer com que outro servidor tenha acesso a esse objeto da sessão 
 
 O Express através do express-session faz todo esse processo de forma simples apenas adicionando um 'RedisStore' no field 'store' da configuração do express-session
 
-  var session = require('express-session');
-  var RedisStore = require('connect-redis')(session);
+    var session = require('express-session');
+    var RedisStore = require('connect-redis')(session);
 
-  var sessionMiddleware = session({
-    secret: secret,
-    store: new RedisStore({client: clientRedis}),
-    resave: false,
-    saveUninitialized: true
-  })
+    var sessionMiddleware = session({
+      secret: secret,
+      store: new RedisStore({client: clientRedis}),
+      resave: false,
+      saveUninitialized: true
+    })
 
   app.use(sessionMiddleware)
 
 ## Referências
 [express-session](https://github.com/expressjs/session)
+
 [connect-redis](https://www.npmjs.com/package/connect-redis)
+
 [How does session work](http://machinesaredigging.com/2013/10/29/how-does-a-web-session-work/)
 
 
