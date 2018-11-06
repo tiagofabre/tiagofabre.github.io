@@ -45,24 +45,44 @@ A
 \end{bmatrix}
 $$
 
+Isolando a matriz *a*
+
 $$
 \begin{bmatrix}
 a
 \end{bmatrix} =\begin{bmatrix}
 R
-\end{bmatrix}^{-1} \ .\begin{bmatrix}
+\end{bmatrix}^{-1}\ .\begin{bmatrix}
 A
 \end{bmatrix}
 $$
 
+Obtemos
 
-```
- |a1| = |+1 -1| . |4|
- |a2|   |-1 +2|   |3|
+$$
+\begin{bmatrix}
+a1\\
+a2
+\end{bmatrix} =\begin{bmatrix}
+1 & -1\\
+-1 & 2
+\end{bmatrix}.\begin{bmatrix}
+4\\
+3
+\end{bmatrix}
+$$
 
- |a1| = |1|
- |a2|   |2|
-```
+Que resulta em
+
+$$
+\begin{bmatrix}
+a1\\
+a2
+\end{bmatrix} =\begin{bmatrix}
+1\\
+2
+\end{bmatrix}
+$$
 
 Porém so conseguimos encontrar a matriz inversa à partir de uma matriz quadrada.
 Uma forma de resolver o sistema  não quadrado e utilizando a [matriz pseudo-inversa](https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse)
