@@ -6,5 +6,3 @@ fields:
 - type: textarea
   label: title
   name: title
-pages:
-- _posts/rbf.md
