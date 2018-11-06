@@ -25,3 +25,5 @@ fields:
   label: comments
   name: comments
   hidden: true
+pages:
+- _posts/test.md
