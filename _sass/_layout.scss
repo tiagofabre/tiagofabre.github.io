@@ -182,8 +182,17 @@
     flex-wrap: wrap;
 
     > li {
-        flex-basis: 50%;
         margin-bottom: $spacing-unit;
+        
+        flex-basis: 50%;
+        
+        @include media-query($on-laptop) {
+            flex-basis: 50%;
+        }
+
+        @include media-query($on-palm) {
+            flex-basis: 100%;
+        }
     }
 }
 
