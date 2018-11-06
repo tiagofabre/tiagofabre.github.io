@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Radial basis function"
+title:  "Radial Basis Function WIP"
 date:	2018-11-05 21:34:00 -0300
 comments: true
 categories: Machine-learning data-science
@@ -8,17 +8,55 @@ categories: Machine-learning data-science
 
 Resoluação de sistemas pelo metodo da matriz inversa
 
+
+$$
+fx=\begin{cases}
+
+2a1+1a2=4\\
+1a1+1a2=3
+
+\end{cases}
+$$
+
+Reescrevendo em forma de matriz:
+
+$$
+\begin{bmatrix}
+2 & 1\\
+1 & 1
+\end{bmatrix} \ .\begin{bmatrix}
+a1\\
+a2
+\end{bmatrix} =\begin{bmatrix}
+4\\
+3
+\end{bmatrix}
+$$
+ 
+ Podemos utilizar a equação:
+
+$$
+\begin{bmatrix}
+R
+\end{bmatrix} .\begin{bmatrix}
+a
+\end{bmatrix} =\begin{bmatrix}
+A
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+a
+\end{bmatrix} =\begin{bmatrix}
+R
+\end{bmatrix}^{-1} \ .\begin{bmatrix}
+A
+\end{bmatrix}
+$$
+
+
 ```
-{ 2a1 + 1a2 = 4
-{ 1a1 + 1a2 = 3
-
-|2  1| . |a1| = |4|
-|1  1|   |a2|   |3|
-
- [R]  .  [a] = [A]
-
- [a] = [R]^-1 . [A]
-
  |a1| = |+1 -1| . |4|
  |a2|   |-1 +2|   |3|
 
