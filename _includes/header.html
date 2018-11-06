@@ -2,8 +2,12 @@
 
   <div class="wrapper">
 
+    {% if my_page.title %}
     <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
-
+    {% else %}
+    <a class="site-title" href="{{ site.baseurl }}/">Home</a>
+    {% endif %}
+    
     <nav class="site-nav">
       <a href="#" class="menu-icon">
         <svg viewBox="0 0 18 15">

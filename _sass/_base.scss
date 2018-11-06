@@ -81,8 +81,12 @@ li {
 /**
  * Headings
  */
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
     font-weight: $base-font-weight;
+}
+
+h1 {
+    font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
@@ -92,7 +96,6 @@ h1, h2, h3, h4, h5, h6 {
  */
 a {
     color: $brand-color;
-    text-decoration: none;
 
     &:visited {
         color: darken($brand-color, 15%);
@@ -101,6 +104,35 @@ a {
     &:hover {
         color: $text-color;
         text-decoration: underline;
+    }
+}
+
+footer {
+    h1 {
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: $text-color;
+
+            &:hover {
+                color: darken($text-color, 15%);
+            }
+        }
+    }
+}
+
+footer {
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #777;
+        
+        &:hover {
+            color: darken($brand-color, 15%);
+            text-decoration: underline;
+        }
     }
 }
 

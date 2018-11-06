@@ -6,14 +6,16 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Tiago Fabre
 email: tiagofabre@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Soluções de problemas que passei e considerações sobre o que tenho estudado.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://tiagofabre.github.io/" # the base hostname & protocol for your site
+url: "https://tiagofabre.github.io/" # the base hostname & protocol for your site
 
 github_username:  tiagofabre
 
 # Build settings
 markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+highlighter: rouge
