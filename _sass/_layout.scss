@@ -178,8 +178,11 @@
 .post-list {
     margin-left: 0;
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
 
     > li {
+        flex-basis: 50%;
         margin-bottom: $spacing-unit;
     }
 }
@@ -190,8 +193,30 @@
 }
 
 .post-link {
-    display: block;
-    font-size: 24px;
+    color: $text-color;
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:visited {
+        color: $text-color;
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.post-sub {
+    font-size: 20px;
+}
+
+.post-more {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 

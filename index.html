@@ -14,10 +14,12 @@ layout: default
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
+        {% if post.subtitle %}
+          <div class="post-sub">{{ post.subtitle | truncate: 120 }}</div>
+          <a class="post-more" href="{{ post.url | prepend: site.baseurl }}">Read More</a>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 </div>
