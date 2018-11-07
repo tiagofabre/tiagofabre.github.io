@@ -1,8 +1,0 @@
----
-label: default
-hide_body: false
-is_partial: false
-fields:
-- type: textarea
-  label: title
-  name: title
