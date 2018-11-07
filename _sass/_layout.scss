@@ -17,6 +17,11 @@
     letter-spacing: -1px;
     margin-bottom: 0;
     float: left;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
 
     &,
     &:visited {
@@ -35,6 +40,12 @@
     .page-link {
         color: $text-color;
         line-height: $base-line-height;
+
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
 
         // Gaps between nav items, but not on the last one
         &:not(:last-child) {

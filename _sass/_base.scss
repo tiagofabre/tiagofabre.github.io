@@ -204,7 +204,24 @@ pre {
     }
 }
 
+.wrapper-footer {
+    display: flex;
+    justify-content: center;
 
+    a {
+        margin-left: 30px;
+        margin-right: 30px;
+        justify-content: center;
+
+        &:hover {
+            fill: $brand-color;
+        }
+
+        &:active {
+            fill: darken($brand-color, 15%);
+        }
+    }
+}
 
 /**
  * Clearfix
