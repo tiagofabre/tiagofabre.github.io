@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Electron"
+subtitle:  "Desenvolvendo aplicações que rodam nativamente nos clientes utilizando tecnologias da web"
 date:   2016-12-02 20:44 -0300
 comments: true
 categories: electron node.js

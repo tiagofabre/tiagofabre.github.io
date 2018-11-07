@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "EventEmitter Pattern Node.js"
+subtitle:  "Aprendendo um novo padrão e entendendo melhor libs como socket.io"
 date:	2016-12-01 20:35:09 -0300
 comments: true
 categories: node.js

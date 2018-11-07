@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Neuronio artificial"
+subtitle:  "Iniciando uma rede neural"
 date:   2016-11-27 19:19:34 -0300
 comments: true
 categories: Machine-learning fundamentos

@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Unity3d e Dependency Injection"
+subtitle:  "Uma possível solução para projetos grandes no desenvolvimento de jogos"
 date:	2016-12-05 21:37:09 -0300
 comments: true
 categories: unity3d Design-patterns
