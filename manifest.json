@@ -1,7 +1,8 @@
 {
     "name": "tiagofabre.github.io",
-    "short_name": "TiagoFabre",
+    "short_name": "Tiago",
     "start_url": "https://tiagofabre.github.io/",
     "display": "standalone",
-    "background_color": "#fff"
+    "background_color": "#fff",
+    "theme_color": "#aa0505"
   }
