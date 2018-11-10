@@ -3,10 +3,12 @@
  */
 .highlight {
     background: #fff;
+    overflow-x: scroll;
+    padding: 15px;
     @extend %vertical-rhythm;
 
     .highlighter-rouge & {
-      background: #eef;
+      background: #efefef;  
     }
 
     .c     { color: #998; font-style: italic } // Comment

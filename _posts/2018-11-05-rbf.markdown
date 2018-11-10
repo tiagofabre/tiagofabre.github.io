@@ -9,7 +9,6 @@ categories: Machine-learning data-science
 
 Resoluação de sistemas pelo metodo da matriz inversa
 
-
 $$
 fx=\begin{cases}
     2a1+1a2=4\\
