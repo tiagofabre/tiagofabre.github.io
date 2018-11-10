@@ -12,10 +12,8 @@ Resoluação de sistemas pelo metodo da matriz inversa
 
 $$
 fx=\begin{cases}
-
-2a1+1a2=4\\
-1a1+1a2=3
-
+    2a1+1a2=4\\
+    1a1+1a2=3
 \end{cases}
 $$
 
@@ -23,14 +21,16 @@ Reescrevendo em forma de matriz:
 
 $$
 \begin{bmatrix}
-2 & 1\\
-1 & 1
-\end{bmatrix} \ .\begin{bmatrix}
-a1\\
-a2
-\end{bmatrix} =\begin{bmatrix}
-4\\
-3
+    2 & 1\\
+    1 & 1
+\end{bmatrix} \ .
+\begin{bmatrix}
+    a1\\
+    a2
+\end{bmatrix} =
+\begin{bmatrix}
+    4\\
+    3
 \end{bmatrix}
 $$
  
@@ -38,11 +38,13 @@ $$
 
 $$
 \begin{bmatrix}
-R
-\end{bmatrix} .\begin{bmatrix}
-a
-\end{bmatrix} =\begin{bmatrix}
-A
+    R
+\end{bmatrix} .
+\begin{bmatrix}
+    a
+\end{bmatrix} =
+\begin{bmatrix}
+    A
 \end{bmatrix}
 $$
 
@@ -50,11 +52,13 @@ Isolando a matriz *a*
 
 $$
 \begin{bmatrix}
-a
-\end{bmatrix} =\begin{bmatrix}
-R
-\end{bmatrix}^{-1}\ .\begin{bmatrix}
-A
+    a
+\end{bmatrix} =
+\begin{bmatrix}
+    R
+\end{bmatrix}^{-1}\ .
+\begin{bmatrix}
+    A
 \end{bmatrix}
 $$
 
@@ -62,14 +66,16 @@ Obtemos
 
 $$
 \begin{bmatrix}
-a1\\
-a2
-\end{bmatrix} =\begin{bmatrix}
-1 & -1\\
--1 & 2
-\end{bmatrix}.\begin{bmatrix}
-4\\
-3
+    a1\\
+    a2
+\end{bmatrix} =
+\begin{bmatrix}
+    1 & -1\\
+    -1 & 2
+\end{bmatrix}.
+\begin{bmatrix}
+    4\\
+    3
 \end{bmatrix}
 $$
 
@@ -77,11 +83,12 @@ Que resulta em
 
 $$
 \begin{bmatrix}
-a1\\
-a2
-\end{bmatrix} =\begin{bmatrix}
-1\\
-2
+    a1\\
+    a2
+\end{bmatrix} =
+\begin{bmatrix}
+    1\\
+    2
 \end{bmatrix}
 $$
 
@@ -92,79 +99,179 @@ descoberta por [Moore](https://en.wikipedia.org/wiki/E._H._Moore)
 Que deduz:
 
 
-```
-[R] . [a] = [A]
+$$
+\begin{bmatrix}
+    R
+\end{bmatrix} =
+\begin{bmatrix}
+    a
+\end{bmatrix}\ .
+\begin{bmatrix}
+    A
+\end{bmatrix}
+$$
 
-{ 1a1 + 2a2 + 1a3 = 4
-{ 2a1 + 3a2 + 1a3 = 6
-{ 4a1 + 1a2 + 2a3 = 7
-{ 1a1 + 5a2 + 2a3 = 8
+$$
+\begin{cases}
+1a1\ +\ 2a2\ +\ 1a3\ =4\\
+2a1\ +\ 3a2\ +\ 1a3\ =6\\
+4a1\ +\ 1a2\ +\ 2a2\ =7\\
+1a1\ +\ 5a2\ +\ 2a3\ =8
+\end{cases}
+$$
 
-[a] = (1/[R]) . [A]  onde (1/[R]) = ([R^t].[R])^-1 . [R^t]
 
-|1 2 1|          |4|
-|2 3 1| . |a1| = |6|
-|4 1 2|   |a2|   |8|
-|1 5 2|   |a4|   |7|
-```
+$$
+\begin{bmatrix}
+    a
+\end{bmatrix} =
+\frac{1}{[ R]} \ 
+\begin{bmatrix}
+    A
+\end{bmatrix}
+$$  
+
+onde 
+
+$$\frac{1}{[ R]} =\left([ R]^{t} .[ R]\right)^{-1} .[ R]^{t}$$
+
+
+$$
+\begin{bmatrix}
+    1 & 2 & 1\\
+    2 & 3 & 1\\
+    4 & 1 & 2\\
+    1 & 5 & 2
+\end{bmatrix} .\begin{bmatrix}
+    a1\\
+    a2\\
+    a3
+\end{bmatrix} =\begin{bmatrix}
+    4\\
+    6\\
+    8\\
+    7
+\end{bmatrix}
+$$
 
 Encontrando 1/[R]:
 
-
-```
-(  |1 2 4 1|    |1 2 1| )^-1   |1 2 4 1|
-(  |2 3 1 5| .  |2 3 1| )   .  |2 3 1 5|
-(  |1 1 2 2|    |4 1 2| )      |1 1 2 2|
-(               |1 5 1| )
-
-(|22 17 13|)^-1  |1 2 4 1|
-(|17 39 17|)  .  |2 3 1 5|
-(|13 17 10|)     |1 1 2 2|
-
-| 0.3960  0.2000 -0.8549|   |1 2 4 1|
-| 0.2000  0.2000 -0.6000| . |2 3 1 5|
-|-0.8549 -0.6000  2.2313|   |1 1 2 2|
-
-|-0.058    0.537   0.074  -0.313|
-| 0.000    0.400  -0.200   0.000|
-| 0.176  -1.278    0.443   0.607|
-```
-
-
-Logo
+$$
+\begin{pmatrix}
+\begin{bmatrix}
+    1 & 2 & 4 & 1\\
+    2 & 3 & 1 & 5\\
+    1 & 1 & 2 & 2
+\end{bmatrix} .\begin{bmatrix}
+    1 & 2 & 1\\
+    2 & 3 & 1\\
+    4 & 1 & 2\\
+    1 & 5 & 1
+\end{bmatrix}
+\end{pmatrix}^{-1} .\begin{bmatrix}
+    1 & 2 & 4 & 1\\
+    2 & 3 & 1 & 5\\
+    1 & 1 & 2 & 2
+\end{bmatrix}
+$$
 
 
-``` 
-[a] = (1/[R]) . [A]
+$$
+\begin{pmatrix}
+\begin{bmatrix}
+    22 & 17 & 13\\
+    17 & 39 & 17\\
+    13 & 17 & 10
+\end{bmatrix}
+\end{pmatrix}^{-1} .\begin{bmatrix}
+    1 & 2 & 4 & 1\\
+    2 & 3 & 1 & 5\\
+    1 & 1 & 2 & 2
+\end{bmatrix}
+$$
 
-      |-0.058    0.537   0.074  -0.313|    |4|
-[a] = | 0.000    0.400  -0.200   0.000| .  |6|
-      | 0.176  -1.278    0.443   0.607|    |7|
-                                           |8|
 
-      |1|
-[a] = |1|
-      |1|
-      |1|
+$$
+\begin{bmatrix}
+    0.3960 & 0.2000 & -0.8549\\
+    0.2000 & 0.2000 & -0.6000\\
+    -0.8549 & -0.6000 & 2.2313
+\end{bmatrix} .\begin{bmatrix}
+    1 & 2 & 4 & 1\\
+    2 & 3 & 1 & 5\\
+    1 & 1 & 2 & 2
+\end{bmatrix}
+$$
 
 
-f(Xl) = sum_{p=1}^{p}  ap .Rp + b
+$$
+\begin{bmatrix}
+    -0.058 & 0.537 & 0.074 & -0.313\\
+    0.000 & 0.400 & -0.200 & 0.000\\
+    0.176 & -1.278 & 0.443 & 0.607
+\end{bmatrix}
+$$
 
-l  X  f(X) 
-1  2   3
-2  3   6
-3  4   5
+Voltando para a equação
 
-```
+
+$$
+\begin{bmatrix}
+    a
+\end{bmatrix} =
+\frac{1}{[ R]} \ 
+\begin{bmatrix}
+    A
+\end{bmatrix}
+$$  
+
+$$
+[a] =\begin{bmatrix}
+    -0.058 & 0.537 & 0.074 & -0.313\\
+    0.000 & 0.400 & -0.200 & 0.000\\
+    0.176 & -1.278 & 0.443 & 0.607
+\end{bmatrix} .\begin{bmatrix}
+    4\\
+    6\\
+    7\\
+    8
+\end{bmatrix}
+$$
+
+$$
+[ a] =\begin{bmatrix}
+    1\\
+    1\\
+    1\\
+    1
+\end{bmatrix}
+$$
+
+$$
+f( x) =\sum ^{P}_{p=1} a_{p} .R_{p} +b
+$$
+
+
+$$
+\begin{array}{ c c }
+x & f( x)\\
+2 & 3\\
+3 & 6\\
+4 & 5
+\end{array}
+$$
 
 Utilizando dois polos:
 
-``` Wollok
+
 C1=2
 C2=4
 
-sigma^2=1
 
+
+$$\sigma ^{2} =1$$
+
+```
 Rp= e ^(-(1/(2sigma^2)) . ||(Xl)-(Cp)||^3)
 
 Rp= e^(-0.5 . ||(Xl)-(Cp)||^2)
