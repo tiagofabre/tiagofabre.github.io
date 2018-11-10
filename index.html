@@ -4,20 +4,34 @@ layout: default
 
 <div class="home">
 
-  <ul class="post-list">
+  <div class="grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
     {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+    <div class="grid-item">
+      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-        {% if post.subtitle %}
-          <div class="post-sub">{{ post.subtitle | truncate: 120 }}</div>
-          <a class="post-more" href="{{ post.url | prepend: site.baseurl }}">Read More</a>
-        {% endif %}
-      </li>
+      <h2>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </h2>
+      {% if post.subtitle %}
+      <div class="post-sub">{{ post.subtitle | truncate: 120 }}</div>
+      <a class="post-more" href="{{ post.url | prepend: site.baseurl }}">Read More</a>
+      {% endif %}
+    </div>
     {% endfor %}
-  </ul>
+  </div>
 
+  <script>
+    var elem = document.querySelector('.grid');
+    var iso = new Isotope(elem, {
+      // options
+      itemSelector: '.grid-item',
+      layoutMode: 'fitRows'
+    });
+
+    // element argument can be a selector string
+    //   for an individual element
+    var iso = new Isotope('.grid', {
+      // options
+    });
+  </script>
 </div>

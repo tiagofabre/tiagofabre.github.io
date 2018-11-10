@@ -186,24 +186,23 @@
     font-size: 20px;
 }
 
-.post-list {
-    margin-left: 0;
+.grid-item { 
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
+    width: 50%;
+    margin-top: 25px;
+    
 
-    > li {
-        margin-bottom: $spacing-unit;
-        
-        flex-basis: 50%;
-        
-        @include media-query($on-laptop) {
-            flex-basis: 50%;
-        }
 
-        @include media-query($on-palm) {
-            flex-basis: 100%;
-        }
+    h2 {
+        margin-bottom: 5px;
+    }
+
+    div, .post-more {
+        padding-left: 5px;
+    }
+    
+    @include media-query($on-palm) {
+        width: 100%;
     }
 }
 

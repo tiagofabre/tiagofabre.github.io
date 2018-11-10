@@ -32,15 +32,18 @@ Exemplo de implementação de um EventEmitter:
 
 Um exemplo de utilização de `EventEmitter` é o `Socke.IO`:
 
-    {% highlight javascript %}
-    var fs = require('fs');
-    var io = require('socket.io')(3000);
-    require('socket.io-stream')(io);
     
-    io.on('connection', function(socket){
-      io.emit(fs.createReadStream('file.jpg'));
-    });
-    {% endhighlight %}
+``` javascript
+
+var fs = require('fs');
+var io = require('socket.io')(3000);
+require('socket.io-stream')(io);
+
+io.on('connection', function(socket){
+  io.emit(fs.createReadStream('file.jpg'));
+});
+
+```
 
 O EventListener chama os listeners conforme a ordem que eles se registraram.
 
