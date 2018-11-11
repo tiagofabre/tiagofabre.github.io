@@ -100,15 +100,132 @@ Que deduz:
 
 $$
 \begin{bmatrix}
-    R
-\end{bmatrix} =
-\begin{bmatrix}
-    a
-\end{bmatrix}\ .
-\begin{bmatrix}
-    A
+R
+\end{bmatrix} .\begin{bmatrix}
+a
+\end{bmatrix} =\begin{bmatrix}
+A
 \end{bmatrix}
 $$
+
+$$
+\begin{bmatrix}
+I
+\end{bmatrix} .\begin{bmatrix}
+R
+\end{bmatrix} .\begin{bmatrix}
+a
+\end{bmatrix} =\begin{bmatrix}
+I
+\end{bmatrix} .\begin{bmatrix}
+A
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+R
+\end{bmatrix} .\begin{bmatrix}
+a
+\end{bmatrix} =\begin{bmatrix}
+R^{t}
+\end{bmatrix}^{-1} .\begin{bmatrix}
+R^{t}
+\end{bmatrix} .\begin{bmatrix}
+A
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+R
+\end{bmatrix}^{-1} .\begin{bmatrix}
+R
+\end{bmatrix} .\begin{bmatrix}
+a
+\end{bmatrix} =\begin{bmatrix}
+R
+\end{bmatrix}^{-1} .\begin{bmatrix}
+R^{t}
+\end{bmatrix}^{-1} .\begin{bmatrix}
+R^{t}
+\end{bmatrix} .\begin{bmatrix}
+A
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+a
+\end{bmatrix} =\begin{bmatrix}
+R
+\end{bmatrix}^{-1} .\begin{bmatrix}
+R^{t}
+\end{bmatrix}^{-1} .\begin{bmatrix}
+R^{t}
+\end{bmatrix} .\begin{bmatrix}
+A
+\end{bmatrix}
+$$
+
+$$
+\left(\begin{bmatrix}
+B
+\end{bmatrix} .\begin{bmatrix}
+A
+\end{bmatrix}\right)^{-1} =\begin{bmatrix}
+B
+\end{bmatrix}^{-1} .\begin{bmatrix}
+A
+\end{bmatrix}^{-1}
+$$
+
+$$
+\left(\begin{bmatrix}
+R^{t}
+\end{bmatrix} .\begin{bmatrix}
+R
+\end{bmatrix}\right)^{-1} =\begin{bmatrix}
+R
+\end{bmatrix}^{-1} .\begin{bmatrix}
+R^{t}
+\end{bmatrix}^{-1}
+$$
+
+
+$$
+\begin{bmatrix}
+a
+\end{bmatrix} =\left(\begin{bmatrix}
+R^{t}
+\end{bmatrix} .\begin{bmatrix}
+R
+\end{bmatrix}\right)^{-1} .\begin{bmatrix}
+R^{t}
+\end{bmatrix} .\begin{bmatrix}
+A
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+a
+\end{bmatrix} =\frac{1}{[ R]} \ \begin{bmatrix}
+A
+\end{bmatrix}
+$$
+
+$$
+\frac{1}{[ R]} \ =\left(\begin{bmatrix}
+R^{t}
+\end{bmatrix} .\begin{bmatrix}
+R
+\end{bmatrix}\right)^{-1} .\begin{bmatrix}
+R^{t}
+\end{bmatrix}
+$$
+
+***
 
 $$
 \begin{cases}
@@ -262,82 +379,347 @@ $$
 
 Utilizando dois polos:
 
-
-C1=2
+$$
+\begin{array}{l}
+C1=2\\
 C2=4
+\end{array}
+$$
 
-
-
-$$\sigma ^{2} =1$$
-
+$$
+\sigma ^{2} =1
+$$
 
 $$
 R_{p} = e^{-\frac{1}{2\sigma ^{2}} .\parallel ( X_{i}) -( X_{p}) \parallel ^{2}}
 $$
 
-```
-Rp= e ^(-(1/(2sigma^2)) . ||(Xl)-(Cp)||^3)
+$$
+\begin{array}{l}
+\begin{cases}
+e^{-0.5\parallel ( 2) -( 2) \parallel ^{2}} a_{1} +e^{-0.5\parallel ( 2) -( 2) \parallel ^{2}} a_{2} +b=3\\
+e^{-0.5\parallel ( 3) -( 2) \parallel ^{2}} a_{1} +e^{-0.5\parallel ( 3) -( 4) \parallel ^{2}} a_{2} +b=6\\
+e^{-0.5\parallel ( 4) -( 2) \parallel ^{2}} a_{1} +e^{-0.5\parallel ( 4) -( 4) \parallel ^{2}} a_{2} +b=5
+\end{cases}\\
+\\
+\begin{cases}
+e^{-0.0} a_{1} +e^{-2.0} a_{2} +b=3\\
+e^{-0.5} a_{1} +e^{-0.5} a_{2} +b=6\\
+e^{-2.0} a_{1} +e^{-0.0} a_{2} +b=5
+\end{cases}\\
+_{\ }\\
+\begin{cases}
+1.0000a_{1} +0.1353 a_{2} +b1.0000=3\\
+0.6065a_{1} +0.6065 a_{2} +b1.0000=3\\
+0.1353a_{1} +1.0000 a_{2} +b1.0000=3
+\end{cases}
+\end{array}
+$$
+$$
+ \begin{array}{l}
+\begin{bmatrix}
+1.0000 & 0.1353 & 1.0000\\
+0.6065 & 0.6065 & 1.0000\\
+0.1353 & 1.0000 & 1.0000
+\end{bmatrix} .\begin{bmatrix}
+a1\\
+a2\\
+a3
+\end{bmatrix} =\begin{bmatrix}
+3\\
+6\\
+5
+\end{bmatrix}\\
+\\
+\begin{bmatrix}
+R
+\end{bmatrix}_{3x3} .\begin{bmatrix}
+a
+\end{bmatrix}_{3x1} =\begin{bmatrix}
+A
+\end{bmatrix}_{3x1}\\
+\\
+\begin{bmatrix}
+R
+\end{bmatrix} =\begin{bmatrix}
+1.0000 & 0.1353 & 1.0000\\
+0.6065 & 0.6065 & 1.0000\\
+0.1353 & 1.0000 & 1.0000
+\end{bmatrix}_{3x3}\\
+\\
+\frac{1}{[ R]} =\left([ R]^{t} .[ R]\right)^{-1} .[ R]^{t}\\
+\\
+[ R]^{t} .[ R] =\begin{bmatrix}
+1.0000 & 0.6065 & 0.1353\\
+0.1353 & 0.6065 & 1.0000\\
+1.0000 & 1.0000 & 1.0000
+\end{bmatrix}_{3x3} .\ \begin{bmatrix}
+1.0000 & 0.1353 & 1.0000\\
+0.6065 & 0.6065 & 1.0000\\
+0.1353 & 1.0000 & 1.0000
+\end{bmatrix}_{3x3}\\
+\\
+[ R]^{t} .[ R] =\begin{bmatrix}
+1.3862 & 0.6386 & 1.7419\\
+0.6386 & 1.3262 & 1.7419\\
+1.7419 & 1.7419 & 3.0000
+\end{bmatrix}_{3x3}\\
+\\
+\left([ R]^{t} .[ R]\right)^{-1} =\begin{bmatrix}
+248.9582 & 247.6207 & -288.3246\\
+247.6207 & 248.9582 & -288.3246\\
+-288.3246 & -288.3246 & 335.1485
+\end{bmatrix}_{3x3}\\
+\\
+\left([ R]^{t} .[ R]\right)^{-1} .[ R]^{t} \ =\begin{bmatrix}
+248.9582 & 247.6207 & -288.3246\\
+247.6207 & 248.9582 & -288.3246\\
+-288.3246 & -288.3246 & 335.1485
+\end{bmatrix}_{3x3} .\ \begin{bmatrix}
+1.0000 & 0.1353 & 1.0000\\
+0.6065 & 0.6065 & 1.0000\\
+0.1353 & 1.0000 & 1.0000
+\end{bmatrix}_{3x3}\\
+\\
+\left([ R]^{t} .[ R]\right)^{-1} .[ R]^{t} \ =\begin{bmatrix}
+-5.8546 & 12.8657 & -7.0111\\
+-7.0111 & 12.8657 & -5.8546\\
+7.8034 & -146069 & 7.8034
+\end{bmatrix}_{3x3} =\frac{1}{[ R]}\\
+\\
+\begin{bmatrix}
+a
+\end{bmatrix} =\frac{1}{[ R]} \ \begin{bmatrix}
+A
+\end{bmatrix}\\
+\\
+\begin{bmatrix}
++24.5749\\
++26.8879\\
+-25.2138
+\end{bmatrix}_{3x1} =\begin{bmatrix}
+-5.8546 & 12.8657 & -7.0111\\
+-7.0111 & 12.8657 & -5.8546\\
+7.8034 & -146069 & 7.8034
+\end{bmatrix}_{3x3} .\begin{bmatrix}
+3\\
+6\\
+5
+\end{bmatrix}_{3x1}\\
+\\
+f( x) =\sum ^{2}_{p=1} a_{p} .R_{p} +b\\
+\\
+f\ ( x) \ =a_{1} e^{-0.5\parallel ( X) -( 2) \parallel ^{2}} +a_{2} e^{-0.5\parallel ( X) -( 4) \parallel ^{2}} +b\\
+\\
+f\ ( x) \ =24.5749e^{-0.5\parallel ( X) -( 2) \parallel ^{2}} +26.8879e^{-0.5\parallel ( X) -( 4) \parallel ^{2}} -25.2138\\
+\\
+X=( 2) \Longrightarrow 24.5749e^{0.0} +26.8879e^{-2.0} -25.2138\ =3\\
+\\
+X=( 3) \Longrightarrow 24.5749e^{-0.5} +26.8879e^{-0.5} -25.2138\ =6\\
+\\
+X=( 4) \Longrightarrow 24.5749e^{-2.0} +26.8879e^{0.0} -25.2138\ =5\\
+\\
+f( 1.5) =-2.3451\\
+\\
+f( 2.5) =+5.2027\\
+\\
+f( 3.5) =+6.4930\\
+\\
+f( 4.5) =-0.4055\\
+\end{array}
+$$
 
-Rp= e^(-0.5 . ||(Xl)-(Cp)||^2)
+
+## XOR input
+
+$$
+\begin{equation*}
+xor
+\end{equation*}
+
+\begin{equation*}
+\begin{matrix}
+x & f( x)\\
+1,1 & 0\\
+0,1 & 1\\
+0,0 & 0\\
+1,0 & 1
+\end{matrix}
+\end{equation*}
+
+\begin{equation*}
+\begin{cases}
+e^{-1\parallel ( 1,1) -( 1,1) \parallel ^{2}} a_{1} +e^{-1\parallel ( 1,1) -( 0,0) \parallel ^{2}} a_{2} +b=0\\
+e^{-1\parallel ( 0,1) -( 1,1) \parallel ^{2}} a_{1} +e^{-1\parallel ( 0,1) -( 0,0) \parallel ^{2}} a_{2} +b=1\\
+e^{-1\parallel ( 0,0) -( 1,1) \parallel ^{2}} a_{1} +e^{-1\parallel ( 0,0) -( 0,0) \parallel ^{2}} a_{2} +b=0\\
+e^{-1\parallel ( 1,0) -( 1,1) \parallel ^{2}} a_{1} +e^{-1\parallel ( 1,0) -( 0,0) \parallel ^{2}} a_{2} +b=1
+\end{cases}
+\end{equation*}
+
+\begin{equation*}
+\begin{cases}
+e^{-0} a_{1} +e^{-2} a_{2} +b=0\\
+e^{-1} a_{1} +e^{-1} a_{2} +b=1\\
+e^{-2} a_{1} +e^{-0} a_{2} +b=0\\
+e^{-1} a_{1} +e^{-1} a_{2} +b=1
+\end{cases}
+\end{equation*}
+
+\begin{equation*}
+\begin{cases}
+1.0000a_{1} +0.1353 a_{2} +b1.0000=0\\
+0.3678a_{1} +0.3678 a_{2} +b1.0000=1\\
+0.1353a_{1} +1.0000 a_{2} +b1.0000=0\\
+0.3678a_{1} +0.3678 a_{2} +b1.0000=1
+\end{cases}
+\end{equation*}
+
+\begin{equation*}
+\begin{bmatrix}
+1.0000 & 0.1353 & 1.0000\\
+0.3678 & 0.3678 & 1.0000\\
+0.1353 & 1.0000 & 1.0000\\
+0.3678 & 0.3678 & 1.0000
+\end{bmatrix} .\begin{bmatrix}
+a1\\
+a2\\
+b
+\end{bmatrix} =\begin{bmatrix}
+0\\
+1\\
+0\\
+1
+\end{bmatrix}
+\end{equation*}
+
+\begin{equation*}
+\begin{bmatrix}
+R
+\end{bmatrix}_{4x3} .\begin{bmatrix}
+a
+\end{bmatrix}_{3x1} =\begin{bmatrix}
+A
+\end{bmatrix}_{4x1}
+\end{equation*}
+
+\begin{equation*}
+\begin{bmatrix}
+R
+\end{bmatrix} =\begin{bmatrix}
+1.0000 & 0.1353 & 1.0000\\
+0.3678 & 0.3678 & 1.0000\\
+0.1353 & 1.0000 & 1.0000\\
+0.3678 & 0.3678 & 1.0000
+\end{bmatrix}_{4x3}
+\end{equation*}
+
+\begin{equation*}
+\frac{1}{[ R]} =\left([ R]^{t} .[ R]\right)^{-1} .[ R]^{t}
+\end{equation*}
+
+\begin{equation*}
+[ R]^{t} .[ R] =\begin{bmatrix}
+1.0000 & 0.3678 & 0.1353 & 0.3678\\
+0.1353 & 0.3678 & 1.0000 & 0.3678\\
+1.0000 & 1.0000 & 1.0000 & 1.0000
+\end{bmatrix}_{3x4} .\begin{bmatrix}
+1.0000 & 0.1353 & 1.0000\\
+0.3678 & 0.3678 & 1.0000\\
+0.1353 & 1.0000 & 1.0000\\
+0.3678 & 0.3678 & 1.0000
+\end{bmatrix}_{4x3}
+\end{equation*}
+
+\begin{equation*}
+[ R]^{t} .[ R] =\begin{bmatrix}
+1.2889 & 0.5413 & 1.8711\\
+0.5413 & 1.2890 & 1.8711\\
+1.8711 & 1.8711 & 4.0000
+\end{bmatrix}_{3x3}
+\end{equation*}
+
+\begin{equation*}
+\left([ R]^{t} .[ R]\right)^{-1} =\begin{bmatrix}
+6.9320 & 5.5945 & -5.8596\\
+5.5945 & 6.9320 & -5.8596\\
+-5.8596 & -5.8596 & 5.7319
+\end{bmatrix}_{3x3}
+\end{equation*}
+
+\begin{equation*}
+\left([ R]^{t} .[ R]\right)^{-1} .[ R]^{t} =\begin{bmatrix}
+6.9320 & 5.5945 & -5.8596\\
+5.5945 & 6.9320 & -5.8596\\
+-5.8596 & -5.8596 & 5.7319
+\end{bmatrix}_{3x3} .\begin{bmatrix}
+1.0000 & 0.3678 & 0.1353 & 0.3678\\
+0.1353 & 0.3678 & 1.0000 & 0.3678\\
+1.0000 & 1.0000 & 1.0000 & 1.0000
+\end{bmatrix}_{3x4}
+\end{equation*}
+
+\begin{equation*}
+\left([ R]^{t} .[ R]\right)^{-1} .[ R]^{t} =\begin{bmatrix}
+1.8296 & -1.2513 & 0.6731 & -1.2513\\
+0.6731 & -1.2513 & 1.8295 & -1.2513\\
+-0.9207 & 1.4207 & -0.9207 & 1.4207
+\end{bmatrix}_{3x4} =\frac{1}{[ R]}
+\end{equation*}
+
+\begin{equation*}
+\begin{bmatrix}
+a
+\end{bmatrix} =\frac{1}{[ R]} \ \begin{bmatrix}
+A
+\end{bmatrix}
+\end{equation*}
+
+\begin{equation*}
+\begin{bmatrix}
+-2.5027\\
+-2.5027\\
+2.8413
+\end{bmatrix}_{3x1} .\begin{bmatrix}
+1.8296 & -1.2513 & 0.6731 & -1.2513\\
+0.6731 & -1.2513 & 1.8295 & -1.2513\\
+-0.9207 & 1.4207 & -0.9207 & 1.4207
+\end{bmatrix}_{3x4} =\begin{bmatrix}
+0\\
+1\\
+0\\
+1
+\end{bmatrix}_{4x1}
+\end{equation*}
+
+\begin{equation*}
+f( x) =\sum ^{2}_{p=1} a_{p} .R_{p} +b
+\end{equation*}
+
+\begin{equation*}
+f\ ( x) \ =a_{1} e^{-1\parallel ( X) -( 1,1) \parallel ^{2}} +a_{2} e^{-1\parallel ( X) -( 0,0) \parallel ^{2}} +b
+\end{equation*}
+
+\begin{equation*}
+f\ ( x) \ =-2.5027e^{-1\parallel ( X) -( 1,1) \parallel ^{2}} -2.5027e^{-1\parallel ( X) -( 0,0) \parallel ^{2}} +2.8413
+\end{equation*}
+
+\begin{equation*}
+X=( 1,1) \Longrightarrow -2.5027e^{0} -2.5027e^{-2} +2.8413=0
+\end{equation*}
+
+\begin{equation*}
+X=( 0,1) \Longrightarrow -2.5027e^{-1} -2.5027e^{-1} +2.8413=1
+\end{equation*}
+
+\begin{equation*}
+X=( 0,0) \Longrightarrow -2.5027e^{-2} -2.5027e^{0} +2.8413=0
+\end{equation*}
+
+\begin{equation*}
+X=( 1,0) \Longrightarrow -2.5027e^{-1} -2.5027e^{-1} +2.8413=1
+$$\end{equation*}
 
 
-f(Xl) = sum_{p=1}^{2}  ap .Rp + b
-
-{e^(-0.5||2-2||^2) .a1 + e^(-0.5||2-4||^2) .a2 + b = 3
-{e^(-0.5||3-2||^2) .a1 + e^(-0.5||3-4||^2) .a3 + b = 6
-{e^(-0.5||4-2||^2) .a1 + e^(-0.5||4-4||^2) .a3 + b = 5
-
-{e^-0.0 .a1 + e^-2.0 .a2 + b = 3
-{e^-0.5 .a1 + e^-0.5 .a2 + b = 6
-{e^-2.0 .a1 + e^-0.0 .a2 + b = 5
-
-{1.000.a1 + 0.135.a2 + b.1.00 = 3
-{0.606.a1 + 0.606.a2 + b.1.00 = 6
-{0.135.a1 + 1.000.a2 + b.1.00 = 5
-
-Resolvendo o sistema
-
-|1.000 0.135 1.000|   |a1|   |3|
-|0.605 0.606 1.000| . |a2| = |6|
-|0.135 1.000 1.000|   |b |   |5|
-
-([R]^t . [R])^-1 . [R]^t
-
-[a] = (1/[R]) . [A]
-
-      |-5.8546 12.8657 -7.0111|   |3|
-[a] = |-7.0111 12.8657 -5.8546| . |4|
-      | 7.8034 -14.069  7.8034|   |5|
-
-      [+24.5749]
-[a] = [+26.8879]
-      [-25.2138]
-
-
-f(Xl) = sum_{p=1}^{2}  ap .Rp + b
-
-
-f(Xl) = a1 .R1 + a2 .R2 + b
-
-f(Xl) = +24.5749 .R1 + +26.8879 .R2 + -25.2138
-
-f(Xl) = +24.5749 .e^(-0.5||X-2||^2) + +26.8879 .e^(-0.5||X-4||^2) + -25.2138
-
-Resultado:
-
-para X=2:
-
-f(2) = 24.5749 .e^0 + +26.8879 .e^-2 + -25.2138 = 3
-
-para X=3:
-
-f(3) = 24.5749 .e^0.5 + +26.8879 .e^-0.5 + -25.2138 = 6
-
-para X=4:
-
-f(4) = 24.5749 .e-2.0 + +26.8879 .e^0 + -25.2138 = 5
-
-```
 
 ## Exemplo prático
 
