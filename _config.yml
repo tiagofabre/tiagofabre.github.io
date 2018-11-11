@@ -12,6 +12,12 @@ url: "https://tiagofabre.github.io/" # the base hostname & protocol for your sit
 
 github_username:  tiagofabre
 
+defaults:
+  - scope:
+      path: "assets/img"
+    values:
+      image: true
+
 # Build settings
 markdown: kramdown
 kramdown:
