@@ -5,6 +5,8 @@
     background: #fff;
     overflow-x: scroll;
     padding: 15px;
+    font-size: 14px;
+
     @extend %vertical-rhythm;
 
     .highlighter-rouge & {
