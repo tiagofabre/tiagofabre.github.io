@@ -7,9 +7,66 @@ comments: true
 categories: Machine-learning data-science
 ---
 
+<div id="myDiv" class="jxgbox">
+</div>
+
+<script>
+
+var layout = {
+        title:'Line and Scatter Plot'
+    }
+
+    const expr1 = math.compile(`e^(-(1/${2})*(x-${3})^2) + e^(-(1/${2})*(x+${3})^2)`)
+        const xValues = math.range(-15, 15, 0.05).toArray()
+        const yValues1 = xValues.map(function (x) {
+            return expr1.eval({x: x})
+        })
+
+        const trace1 = {
+            x: xValues,
+            y: yValues1,
+            type: 'scatter'
+        }
+
+        var data = [trace1];
+
+        Plotly.newPlot('myDiv', 
+                   data, 
+                   layout,
+                   {displayModeBar: false});
+    
+    
+
+    function showVal(value) {
+        console.log(value)
+        const expr1 = math.compile(`e^(-(1/${value*0.5})*(x-${4})^2) + e^(-(1/${value*0.5})*(x+${4})^2)`)
+        const xValues = math.range(-15, 15, 0.05).toArray()
+        const yValues1 = xValues.map(function (x) {
+            return expr1.eval({x: x})
+        })
+
+        const trace1 = {
+            x: xValues,
+            y: yValues1,
+            type: 'scatter'
+        }
+
+        var data = [trace1];
+
+        Plotly.newPlot('myDiv', 
+                   data, 
+                   layout,
+                   {displayModeBar: false});
+    }
+</script>
+
+  <input type="range" min="1" max="50" value="0" style="width:100%;" class="slider" id="myRange"  oninput="showVal(this.value)">
+
+
+
 ## Exemplo prático
 
-```python
+``` python
 import numpy as np
 from math import exp, pow
 from numpy.linalg import inv
@@ -47,7 +104,7 @@ def rbf(inp, out, center):
     return rbf_interpolation
 ```
 
-```python
+``` python
 inp = np.array([2, 3, 4])
 out = np.array([3, 6, 5])
 center = np.array([2, 4])
@@ -65,7 +122,7 @@ plt.show()
 
 ![{{ site.baseurl }}/assets/img/rbf1.svg]({{ site.baseurl }}/assets/img/rbf1.svg)
 
-```python
+``` python
 inp = np.array([2, 3, 4, 5])
 out = np.array([3, 1, 5, -2])
 center = np.array([2, 3, 4])
@@ -83,7 +140,7 @@ plt.show()
 
 ![{{ site.baseurl }}/assets/img/rbf1.svg]({{ site.baseurl }}/assets/img/rbf2.svg)
 
-```python
+``` python
 inp = np.array([2, 4, 7, 9])
 out = np.array([7, 8, 9, 5])
 center = np.array([2, 3, 4])
@@ -104,7 +161,7 @@ plt.show()
 
 ### XOR input
 
-```python
+``` python
 inp = np.array([np.array([1,1]), np.array([0,1]), np.array([0,0]), np.array([1,0])])
 out = np.array([              0,               1,               0,             1])
 center = np.array([ np.array([1,1]), np.array([0,0])])
