@@ -6,6 +6,9 @@ subtitle: "Entendendo uma Radial Basis Function"
 comments: true
 categories: Machine-learning data-science
 ---
+<script src="https://tikzwolke.com/v1/tikzwolke.js"></script>
+
+
 
 <!-- # Introdução
 
@@ -16,11 +19,6 @@ Um exemplo de uma tarefa diária que ilustra esse ponto é o reconhecimento de v
 Na tentativa de contornar esse problema, modelos de aprendizagem de maquina forma empregados. Tendo a virtude de não precisar de um modelo explicito para o reconhecimento de voz a `Multilayer perceptron` incorpora uma série de camadas "escondidas" cuja tarefa é codificar as restrições dos dados de entrada. Isso é alcançado variando o valor dos pesos com o objetivo de minimizar o erro em relação a entrada/saída dos dados de treinamento. Este processo ficou conhecido como `aprendizagem`. E a habilidade da rede produzir resultados razoáveis para dados não utilizados no treinamento é conhecido como `generalização`. Porém utilizar uma multilayer perceptron para resolver uma tarefa específica exige um esforço muito empírico pois ainda nos restam algumas questões como: Quantas camadas escondidas devem ser utilizadas? e em que organização elas devem estar? Quantos dados de treinamento são necessários? Qual deve ser o valor inicial dos pesos?
 
 Com o intuito de responder as questões acima surgiram novos modelos, os quais tentam deixar a modelagem mais explicita e menos empírica. Uma dessa técnicas é a interpolação em espaços multidimensionais através do `Radial Basis Funcions`. -->
-
-
-
-
-
 
 <!-- ## problema
 
@@ -38,55 +36,170 @@ $$
 
 Onde $$\phi$$ é uma função gaussiana -->
 
-## Exemplos de RBF
+# Radial Basis Function
 
+<center>
+    <img src="/assets/img/rbf-cool-ex.svg" alt="/assets/img/rbf-cool-ex.svg" style="width: 860px;">
+</center>
 
-$$
-
-\begin{equation*}
-\begin{matrix}
-f( x) =\sqrt{1+\sigma ^{2} +x^{2}} &  & f( x) =e^{-\frac{1}{2\sigma ^{2}} \ x^{2}}\\
- &  & \\
-f( x) =x^{\sigma ^{2}}\ln x &  & f( x) =\frac{1}{1+\sigma ^{2} x^{2}}
-\end{matrix}
-\end{equation*}
-
-$$
+<p>A <b>radial basis function (RBF)</b> is a <a href="/wiki/Real-valued_function" title="Real-valued function">real-valued function</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle \phi }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>ϕ<!-- ϕ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle \phi }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b36dc4887c86d6f01183292a5d2f984e23318c10" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.385ex; height:2.509ex;" alt="{\textstyle \phi}"></span> whose value depends only on the distance from the <a href="/wiki/Origin_(mathematics)" title="Origin (mathematics)">origin</a>, so that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle \phi \left(\mathbf {x} \right)=\phi \left(\left\|\mathbf {x} \right\|\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>ϕ<!-- ϕ --></mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="bold">x</mi>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>=</mo>
+        <mi>ϕ<!-- ϕ --></mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mo symmetric="true">‖</mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="bold">x</mi>
+            </mrow>
+            <mo symmetric="true">‖</mo>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle \phi \left(\mathbf {x} \right)=\phi \left(\left\|\mathbf {x} \right\|\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/07cdf7ef834c29a76369d7c2cb8673f6ec935b0a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:15.409ex; height:2.843ex;" alt="{\textstyle \phi \left(\mathbf {x} \right)=\phi \left(\left\|\mathbf {x} \right\|\right)}"></span>; or alternatively on the distance from some other point <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle \mathbf {c} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">c</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle \mathbf {c} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d0d8239c0502ae3b5f33956596b3309fcb61bbc6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.188ex; height:1.676ex;" alt="{\textstyle \mathbf {c} }"></span>, called a <i>center</i>, so that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle \phi \left(\mathbf {x} ,\mathbf {c} \right)=\phi \left(\left\|\mathbf {x} -\mathbf {c} \right\|\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>ϕ<!-- ϕ --></mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="bold">x</mi>
+            </mrow>
+            <mo>,</mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="bold">c</mi>
+            </mrow>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>=</mo>
+        <mi>ϕ<!-- ϕ --></mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mo symmetric="true">‖</mo>
+            <mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="bold">x</mi>
+              </mrow>
+              <mo>−<!-- − --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="bold">c</mi>
+              </mrow>
+            </mrow>
+            <mo symmetric="true">‖</mo>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle \phi \left(\mathbf {x} ,\mathbf {c} \right)=\phi \left(\left\|\mathbf {x} -\mathbf {c} \right\|\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/993d59871ba5dedd568eebf1b54b1bf2fa912dab" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:21.659ex; height:2.843ex;" alt="{\textstyle \phi \left(\mathbf {x} ,\mathbf {c} \right)=\phi \left(\left\|\mathbf {x} -\mathbf {c} \right\|\right)}"></span>. Any function <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle \phi }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>ϕ<!-- ϕ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle \phi }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b36dc4887c86d6f01183292a5d2f984e23318c10" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.385ex; height:2.509ex;" alt="{\textstyle \phi}"></span> that satisfies the property <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle \phi \left(\mathbf {x} \right)=\phi \left(\left\|\mathbf {x} \right\|\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>ϕ<!-- ϕ --></mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="bold">x</mi>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>=</mo>
+        <mi>ϕ<!-- ϕ --></mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mo symmetric="true">‖</mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="bold">x</mi>
+            </mrow>
+            <mo symmetric="true">‖</mo>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle \phi \left(\mathbf {x} \right)=\phi \left(\left\|\mathbf {x} \right\|\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/07cdf7ef834c29a76369d7c2cb8673f6ec935b0a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:15.409ex; height:2.843ex;" alt="{\textstyle \phi \left(\mathbf {x} \right)=\phi \left(\left\|\mathbf {x} \right\|\right)}"></span> is a <a href="/wiki/Radial_function" title="Radial function">radial function</a>. The norm is usually <a href="/wiki/Euclidean_distance" title="Euclidean distance">Euclidean distance</a>, although other <a href="/wiki/Distance_function" class="mw-redirect" title="Distance function">distance functions</a> are also possible.
+</p>
 
 ## Comportamento da função
 
 ### RBF com variação no $$\sigma$$, $$\lambda$$ e em $$c$$
 
 $$
-f( x) =\lambda e^{-\frac{1}{2\sigma ^{2}} \ (x)^{2}}
+f( x) =\lambda e^{-\frac{1}{2\sigma ^{2}} \ (x-c)^{2}}
 $$
 
 
 <div id="graph-gaussian1"></div>
 
 <script>
-    var sigma = 15;
-    var signal = '+'
-    var center = 4
-    var lambda = 1
-    showVal(sigma, signal, center, lambda)
+    let graphParams1 = [{sigma: 15, center: -20, lambda: 1, signal: "+", id: 0}]
+    updateGraph1(graphParams1)
+    function updateGraph1 (params) {
+        ({sigma, center, lambda, id} = params);
+        graphParams1 = graphParams1.map(e => {
+            if(e.id === id) {
+                return Object.assign(e, params)
+            } else {
+                return e
+            }
+        })
 
-    function updateSigma(v, s, c, l) {
-        
-        sigma = v
-        signal = s
-        center = c
-        lambda = l
-        showVal(sigma, signal, center, lambda)
-        
-    }
-
-    function showVal(sigma, signal, center, lambda) {
-        
+        const centers = graphParams1.length
         const layout = { title:'' }
-        const sigmaSquare = Math.pow(sigma * 0.1, 2);
-        center = center*0.1
-        const expressions = `${signal}${lambda}*e^(-(1/(2*(${sigmaSquare})))*(x-${center})^2)`
+        const expressions = `${graphParams1[0].signal} (${graphParams1[0].lambda}*0.1) * e^(-(1/(2*(${graphParams1[0].sigma}*0.1)^2))*(x-${graphParams1[0].center}*0.1)^2)`
         const expr = math.compile(expressions)
         const xValues = math.range(-11, 11, 0.05).toArray()
         const yValues = xValues.map(x => expr.eval({ x: x }))
@@ -95,90 +208,45 @@ $$
     }
 </script>
 
+
 <center>
-    <label> 𝜎
-    <input type="range" min="1" max="30" value="15" style="width:50%;" oninput="updateSigma(this.value, signal, center, lambda)">
-    </label>
-    <p>0.1 - 3</p>
-
-    <label> $$\lambda$$
-    <input type="range" min="-10" max="10" value="1" style="width:50%;" oninput="updateSigma(sigma, signal, center, this.value)">
-    </label>
-    <p>-10 - 10</p>
-
-    <label> C
-    <input type="range" min="-50" max="50" value="0" style="width:50%;" oninput="updateSigma(sigma, signal, this.value, lambda)">
-    </label>
-    <p>-5 - 5</p>
-    
-    <!-- <p>
-      <label>
-        <input name="group1" type="radio" checked value="+" onClick="updateSigma(sigma, this.value, center, lambda);"/>
-        <span style="display: inline-block;">$$+e$$</span>
-      </label>
-    
-      <label>
-        <input name="group1" type="radio" value="-" onClick="updateSigma(sigma, this.value, center, lambda);"/>
-        <span style="display: inline-block;">$$-e$$</span>
-      </label>
-    </p> -->
+    <label for="ex1-sigma"> $$\sigma$$ </label>
+    <input id="ex1-sigma" type="range" min="1" max="30" value="15" style="width:50%;" oninput="updateGraph1({id: 0, sigma: this.value})">
+    <label for="ex1-c"> $$c$$ </label>
+    <input id="ex1-c" type="range" min="-50" max="50" value="0" style="width:50%;" oninput="updateGraph1({id: 0, center: this.value})">
 </center>
 
 Somatórios de RBF`s são utilizado para criar interpolação. Este processo de interpolação é muito similar ao de uma rede neural e em algumas literaturas pode-se encontrar RBF`s Neural networks.
 
-RBF
-$$
-f( x) =\sum ^{P}_{p=1} \lambda _{p} \phi ( \parallel x-y_{p} \parallel )
-$$
-
-Perceptron
-$$
-f( x) =\sum ^{P}_{p=1} w_{p} x_{p} +b
-$$
-
-
-### Somatório de RBF`s com variação no `sigma` e no sinal da função
+Segue o exemplo abaixo que mostra de uma forma interativa como as funciona a somatória de RBF`s:
 
 $$
-f( x) =e^{-\frac{1}{2\sigma ^{2}}( x-1)^{2}} +e^{-\frac{1}{2\sigma ^{2}}( x+1)^{2}}
+f( x) =\lambda e^{-\frac{1}{2\sigma ^{2}} \ (x-c)^{2}} + \lambda e^{-\frac{1}{2\sigma ^{2}} \ (x-c)^{2}}
 $$
 
 
 <div id="graph-gaussian2"></div>
 
 <script>
-    var sigma1 = 15;
-    var sigma2 = 15;
+    let graphParams = [{sigma: 15, center: -20, lambda: 1, signal: "+", id: 0},
+                       {sigma: 15, center: +20, lambda: 1, signal: "+", id: 1}]
 
-    var signal1 = '+'
-    var signal2 = '-'
+    updateGraph(graphParams)
 
-    showValExample2(sigma1, sigma2, signal1, signal2)
+    function updateGraph (params) {
+        ({sigma, center, lambda, id} = params);
+        graphParams = graphParams.map(e => {
+            if(e.id === id) {
+                return Object.assign(e, params)
+            } else {
+                return e
+            }
+        })
 
-    function updateEx2(sgm1, sgm2, snl1, snl2) {
-        sigma1 = sgm1;
-        sigma2 = sgm2;
-
-        signal1 = snl1
-        signal2 = snl2
-        showValExample2(sigma1, sigma2, signal1, signal2)
-    }
-
-    function showValExample2(sigma1, sigma2, signal1, signal2) {
-        const centers = 2
-        const semiCenter = centers/2
-
-        const layout = { title:'Soma de duas funções gaussianas' }
-        const sigmaSquare1 = Math.pow(sigma1 * 0.1, 2);
-        const sigmaSquare2 = Math.pow(sigma2 * 0.1, 2);
-
-        let expressions = ``
-        for(let i=0; i < centers; i++) {
-            let center2 = centers/2;
-            let c = 0
-            expressions += `${signal1} e^(-(1/(2*(${sigmaSquare1})))*(x+2)^2) + ${signal2} e^(-(1/(2*(${sigmaSquare2})))*(x-2)^2)`
-        }
-
+        const centers = graphParams.length
+        const layout = { title:'' }
+        const expressions = `${graphParams[0].signal} (${graphParams[0].lambda}*0.1) * e^(-(1/(2*(${graphParams[0].sigma}*0.1)^2))*(x-${graphParams[0].center}*0.1)^2) +
+                             ${graphParams[1].signal} (${graphParams[1].lambda}*0.1) * e^(-(1/(2*(${graphParams[1].sigma}*0.1)^2))*(x-${graphParams[1].center}*0.1)^2)`
         const expr = math.compile(expressions)
         const xValues = math.range(-11, 11, 0.05).toArray()
         const yValues = xValues.map(x => expr.eval({ x: x }))
@@ -188,72 +256,62 @@ $$
 </script>
 
 <div style="display: inline-flex; width: 100%;">
-    <center style="width: 50%;">
-        <label> 𝜎
-        <input type="range" min="1" max="30" value="15" style="width:25%;" oninput="updateEx2(this.value, sigma2, signal1, signal2)">
-        </label>
-        <p>0.1 - 3</p>
-        <label>
-            <input name="ex2g1" type="radio" checked value="+" onClick="updateEx2(sigma1, sigma2, this.value, signal2);"/>
-            <span style="display: inline-block;">$$+e$$</span>
-        </label>
-        <label>
-            <input name="ex2g1" type="radio" value="-" onClick="updateEx2(sigma1, sigma2, this.value, signal2);"/>
-            <span style="display: inline-block;">$$-e$$</span>
-        </label>
-    </center>
-    <center style="width: 50%;">
-        <label> 𝜎
-        <input type="range" min="1" max="30" value="15" style="width:25%;" oninput="updateEx2(sigma1, this.value, signal1, signal2)">
-        </label>
-        <p>0.1 - 3</p>
-        <label>
-            <input name="ex2g2" type="radio" value="+" onClick="updateEx2(sigma1, sigma2, signal1, this.value);"/>
-            <span style="display: inline-block;">$$+e$$</span>
-        </label>
-        <label>
-            <input name="ex2g2" type="radio" checked value="-" onClick="updateEx2(sigma1, sigma2, signal1, this.value);"/>
-            <span style="display: inline-block;">$$-e$$</span>
-        </label>
-    </center>
+    <div style="width: 50%; display: flex; flex-direction: column;">
+        <label>$$\sigma$$</label>
+        <input type="range" min="1" max="30" value="15" style="width:80%;" oninput="updateGraph({id: 0, sigma: this.value})">
+        <label>$$C$$</label>
+        <input type="range" min="-50" max="50" value="-20" style="width:80%;" oninput="updateGraph({id: 0, center: this.value})">
+        <label>$$\lambda$$</label>
+        <input type="range" min="-30" max="30" value="10" style="width:80%;" oninput="updateGraph({id: 0, lambda: this.value})">
+    </div>
+    <div style="width: 50%; display: flex; flex-direction: column;">
+        <label>$$\sigma$$</label>
+        <input type="range" min="1" max="30" value="15" style="width:80%;" oninput="updateGraph({id: 1, sigma: this.value})">
+        <label>$$C$$</label>
+        <input type="range" min="-50" max="50" value="20" style="width:80%;" oninput="updateGraph({id: 1, center: this.value})">
+        <label>$$\lambda$$</label>
+        <input type="range" min="-30" max="30" value="10" style="width:80%;" oninput="updateGraph({id: 1, lambda: this.value})">
+    </div>
 </div>
 
-### Somatório de multiplos RBF`s com multiplos sinais
+<br>
+
+Através de sua versatilidade podemos mostrar exemplos de como construir algumas varieades de função atraves das RBF`s:
+
+* Somatório de multiplos RBF`s com multiplos sinais
 
 $$
-f(x)=-e^{-\left(\frac{1}{0.8^{2}}( x-1)^{2}\right)} +1e^{-\left(\frac{1}{0.8^{2}}( x-0)^{2}\right)} -e^{-\left(\frac{1}{0.8^{2}}( x+1)^{2}\right)}
+f(x)=-e^{-\left(\frac{1}{0.8^{2}}( x-1)^{2}\right)} +e^{-\left(\frac{1}{0.8^{2}}( x-0)^{2}\right)} -e^{-\left(\frac{1}{0.8^{2}}( x+1)^{2}\right)}
 $$
 
-![{{ site.baseurl }}/assets/img/rbf3g.svg]({{ site.baseurl }}/assets/img/rbf3g.svg)
+<center>
+    <img src="/assets/img/rbf3.svg" alt="/assets/img/rbf3g.svg" style="width: 860px;">
+</center>
 
-### Somatório de RBF`s reproduzindo uma função linear
+* Somatório de RBF`s reproduzindo uma função linear
 
 $$
-f(x)=+1e^{-\left(\frac{1}{0.9^{2}}( x-1.2)^{2}\right)} -1e^{-\left(\frac{1}{0.9^{2}}( x+1.2)^{2}\right)}
+f(x)=+e^{-\left(\frac{1}{0.9^{2}}( x-1.2)^{2}\right)} -e^{-\left(\frac{1}{0.9^{2}}( x+1.2)^{2}\right)}
 $$
 
-![{{ site.baseurl }}/assets/img/rbf-linear.svg]({{ site.baseurl }}/assets/img/rbf-linear.svg)
+<center>
+    <img src="/assets/img/rbf-linear.svg" alt="/assets/img/rbf-linear.svg" style="width: 860px;">
+</center>
 
-
-### Somatório de RBF`s reproduzindo a função cosseno
+* Somatório de RBF`s reproduzindo a função cosseno
 
 $$
 f( x) =e^{-\left(\frac{1}{\sqrt{2}^{2}}( x+2\pi )^{2}\right)} -e^{-\left(\frac{1}{\sqrt{2}^{2}}( x+\pi )^{2}\right)} +e^{-\left(\frac{1}{\sqrt{2}^{2}}( x+0)^{2}\right)} -e^{-\left(\frac{1}{\sqrt{2}^{2}}( x-\pi )^{2}\right)} +e^{-\left(\frac{1}{\sqrt{2}^{2}}( x-2\pi )^{2}\right)}
 $$
 
-![{{ site.baseurl }}/assets/img/rbf-cos.svg]({{ site.baseurl }}/assets/img/rbf-cos.svg)
-
-### Somatório de RBF`s reproduzindo uma função não linear
-
-$$
-f( x) =-e^{-\left(\frac{1}{2.3^{2}}( x-2)^{2}\right)} +e^{-\left(\frac{1}{1.2^{2}}( x-0)^{2}\right)} -e^{-\left(\frac{1}{0.5^{2}}( x+0.2)^{2}\right)} +e^{-\left(\frac{1}{0.33^{2}}( x+3)^{2}\right)} +e^{-\left(\frac{1}{0.3^{2}}( x-3)^{2}\right)}
-$$
-
-![{{ site.baseurl }}/assets/img/rbf-complex.svg]({{ site.baseurl }}/assets/img/rbf-complex.svg)
-
+<center>
+    <img src="/assets/img/rbf-cos.svg" alt="/assets/img/rbf-cos.svg" style="width: 860px;">
+</center>
 
 # Interpolação
 
+
+Depois de entender um pouco melhor o comportamento de RBF`s podemos perceber que 
 Acima forma mostrados alguns exemplos de como a RBF funcionam e como a combinação delas pode criar um aproximador de praticamente qualquer função. Porém ainda precisamos de uma forma de encontrar os parametros necessários da RBF, e para isso podemos montar um sistema. Segue o exemplo:
 
 Supondo que temos a seguinte entrada e saída:
@@ -423,7 +481,9 @@ $$
 f( x) =\sum ^{2}_{p=1} \lambda e^{-\frac{1}{2\sigma ^{2}} \ (x)^{2}}\\
 \\
 $$
+
 Substituimos os $$\lambda$$ pelos valores encontrados e podemos testar nossa função de interpolação:
+
 $$
 \\
 f\ ( x) \ =a_{1} e^{-0.5\parallel ( X) -( 2) \parallel ^{2}} +a_{2} e^{-0.5\parallel ( X) -( 4) \parallel ^{2}} +b\\
