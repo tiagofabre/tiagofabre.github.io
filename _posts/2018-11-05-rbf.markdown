@@ -375,28 +375,40 @@ e^{-2.0} a_{1} +e^{-0.0} a_{2} +b=5
 \\
 \begin{cases}
 1.0000a_{1} +0.1353 a_{2} +b1.0000=3\\
-0.6065a_{1} +0.6065 a_{2} +b1.0000=3\\
-0.1353a_{1} +1.0000 a_{2} +b1.0000=3
+0.6065a_{1} +0.6065 a_{2} +b1.0000=6\\
+0.1353a_{1} +1.0000 a_{2} +b1.0000=5
 \end{cases}
 $$
 
-Através da resolução de sistemas pelo método da matriz inversa/pseudo inversa podemos reolver o sistema e encontrar os parametros que nos restam: 
+Através da resolução de sistemas pelo método da matriz inversa/pseudo inversa podemos resolver o sistema e encontrar as incógnitas:
+
 
 $$
  \begin{array}{l}
-\begin{bmatrix}
+\underbrace{\begin{bmatrix}
 1.0000 & 0.1353 & 1.0000\\
 0.6065 & 0.6065 & 1.0000\\
 0.1353 & 1.0000 & 1.0000
-\end{bmatrix} .\begin{bmatrix}
+\end{bmatrix}}_{\begin{bmatrix}
+R
+\end{bmatrix}} .\underbrace{\begin{bmatrix}
 a1\\
 a2\\
 a3
-\end{bmatrix} =\begin{bmatrix}
+\end{bmatrix}}_{\begin{bmatrix}
+a
+\end{bmatrix}} =\underbrace{\begin{bmatrix}
 3\\
 6\\
 5
-\end{bmatrix}\\
+\end{bmatrix}}_{\begin{bmatrix}
+A
+\end{bmatrix}}
+\end{array}
+$$
+
+$$
+ \begin{array}{l}
 \\
 \begin{bmatrix}
 R
