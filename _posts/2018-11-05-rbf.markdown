@@ -1200,7 +1200,9 @@ center = np.array([2, 3, 4])
 
 rbf_instance = rbf(inp, out, center)
 
-input_test = np.linspace(-5,10,100)
+rbf_instance = rbf(inp, out, center)
+
+input_test = input_test = np.linspace(2,5,100)
 output_test = list(map(rbf_instance, input_test))
 
 plt.plot(input_test, output_test)
@@ -1227,7 +1229,7 @@ plt.ylabel('expected vs predicted')
 plt.show()
 ```
 
-![{{ site.baseurl }}/assets/img/rbf1.svg]({{ site.baseurl }}/assets/img/rbf3.svg)
+![{{ site.baseurl }}/assets/img/rbf3.svg]({{ site.baseurl }}/assets/img/rbf3.svg)
 
 
 ### XOR input
