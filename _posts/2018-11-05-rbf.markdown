@@ -42,136 +42,24 @@ Onde $$\phi$$ é uma função gaussiana -->
     <img src="/assets/img/rbf-cool-ex.svg" alt="/assets/img/rbf-cool-ex.svg" style="width: 860px;">
 </center>
 
-<p>A <b>radial basis function (RBF)</b> is a <a href="/wiki/Real-valued_function" title="Real-valued function">real-valued function</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle \phi }">
-  <semantics>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mstyle displaystyle="false" scriptlevel="0">
-        <mi>ϕ<!-- ϕ --></mi>
-      </mstyle>
-    </mrow>
-    <annotation encoding="application/x-tex">{\textstyle \phi }</annotation>
-  </semantics>
-</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b36dc4887c86d6f01183292a5d2f984e23318c10" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.385ex; height:2.509ex;" alt="{\textstyle \phi}"></span> whose value depends only on the distance from the <a href="/wiki/Origin_(mathematics)" title="Origin (mathematics)">origin</a>, so that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle \phi \left(\mathbf {x} \right)=\phi \left(\left\|\mathbf {x} \right\|\right)}">
-  <semantics>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mstyle displaystyle="false" scriptlevel="0">
-        <mi>ϕ<!-- ϕ --></mi>
-        <mrow>
-          <mo>(</mo>
-          <mrow class="MJX-TeXAtom-ORD">
-            <mi mathvariant="bold">x</mi>
-          </mrow>
-          <mo>)</mo>
-        </mrow>
-        <mo>=</mo>
-        <mi>ϕ<!-- ϕ --></mi>
-        <mrow>
-          <mo>(</mo>
-          <mrow>
-            <mo symmetric="true">‖</mo>
-            <mrow class="MJX-TeXAtom-ORD">
-              <mi mathvariant="bold">x</mi>
-            </mrow>
-            <mo symmetric="true">‖</mo>
-          </mrow>
-          <mo>)</mo>
-        </mrow>
-      </mstyle>
-    </mrow>
-    <annotation encoding="application/x-tex">{\textstyle \phi \left(\mathbf {x} \right)=\phi \left(\left\|\mathbf {x} \right\|\right)}</annotation>
-  </semantics>
-</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/07cdf7ef834c29a76369d7c2cb8673f6ec935b0a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:15.409ex; height:2.843ex;" alt="{\textstyle \phi \left(\mathbf {x} \right)=\phi \left(\left\|\mathbf {x} \right\|\right)}"></span>; or alternatively on the distance from some other point <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle \mathbf {c} }">
-  <semantics>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mstyle displaystyle="false" scriptlevel="0">
-        <mrow class="MJX-TeXAtom-ORD">
-          <mi mathvariant="bold">c</mi>
-        </mrow>
-      </mstyle>
-    </mrow>
-    <annotation encoding="application/x-tex">{\textstyle \mathbf {c} }</annotation>
-  </semantics>
-</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d0d8239c0502ae3b5f33956596b3309fcb61bbc6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.188ex; height:1.676ex;" alt="{\textstyle \mathbf {c} }"></span>, called a <i>center</i>, so that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle \phi \left(\mathbf {x} ,\mathbf {c} \right)=\phi \left(\left\|\mathbf {x} -\mathbf {c} \right\|\right)}">
-  <semantics>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mstyle displaystyle="false" scriptlevel="0">
-        <mi>ϕ<!-- ϕ --></mi>
-        <mrow>
-          <mo>(</mo>
-          <mrow>
-            <mrow class="MJX-TeXAtom-ORD">
-              <mi mathvariant="bold">x</mi>
-            </mrow>
-            <mo>,</mo>
-            <mrow class="MJX-TeXAtom-ORD">
-              <mi mathvariant="bold">c</mi>
-            </mrow>
-          </mrow>
-          <mo>)</mo>
-        </mrow>
-        <mo>=</mo>
-        <mi>ϕ<!-- ϕ --></mi>
-        <mrow>
-          <mo>(</mo>
-          <mrow>
-            <mo symmetric="true">‖</mo>
-            <mrow>
-              <mrow class="MJX-TeXAtom-ORD">
-                <mi mathvariant="bold">x</mi>
-              </mrow>
-              <mo>−<!-- − --></mo>
-              <mrow class="MJX-TeXAtom-ORD">
-                <mi mathvariant="bold">c</mi>
-              </mrow>
-            </mrow>
-            <mo symmetric="true">‖</mo>
-          </mrow>
-          <mo>)</mo>
-        </mrow>
-      </mstyle>
-    </mrow>
-    <annotation encoding="application/x-tex">{\textstyle \phi \left(\mathbf {x} ,\mathbf {c} \right)=\phi \left(\left\|\mathbf {x} -\mathbf {c} \right\|\right)}</annotation>
-  </semantics>
-</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/993d59871ba5dedd568eebf1b54b1bf2fa912dab" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:21.659ex; height:2.843ex;" alt="{\textstyle \phi \left(\mathbf {x} ,\mathbf {c} \right)=\phi \left(\left\|\mathbf {x} -\mathbf {c} \right\|\right)}"></span>. Any function <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle \phi }">
-  <semantics>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mstyle displaystyle="false" scriptlevel="0">
-        <mi>ϕ<!-- ϕ --></mi>
-      </mstyle>
-    </mrow>
-    <annotation encoding="application/x-tex">{\textstyle \phi }</annotation>
-  </semantics>
-</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b36dc4887c86d6f01183292a5d2f984e23318c10" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.385ex; height:2.509ex;" alt="{\textstyle \phi}"></span> that satisfies the property <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle \phi \left(\mathbf {x} \right)=\phi \left(\left\|\mathbf {x} \right\|\right)}">
-  <semantics>
-    <mrow class="MJX-TeXAtom-ORD">
-      <mstyle displaystyle="false" scriptlevel="0">
-        <mi>ϕ<!-- ϕ --></mi>
-        <mrow>
-          <mo>(</mo>
-          <mrow class="MJX-TeXAtom-ORD">
-            <mi mathvariant="bold">x</mi>
-          </mrow>
-          <mo>)</mo>
-        </mrow>
-        <mo>=</mo>
-        <mi>ϕ<!-- ϕ --></mi>
-        <mrow>
-          <mo>(</mo>
-          <mrow>
-            <mo symmetric="true">‖</mo>
-            <mrow class="MJX-TeXAtom-ORD">
-              <mi mathvariant="bold">x</mi>
-            </mrow>
-            <mo symmetric="true">‖</mo>
-          </mrow>
-          <mo>)</mo>
-        </mrow>
-      </mstyle>
-    </mrow>
-    <annotation encoding="application/x-tex">{\textstyle \phi \left(\mathbf {x} \right)=\phi \left(\left\|\mathbf {x} \right\|\right)}</annotation>
-  </semantics>
-</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/07cdf7ef834c29a76369d7c2cb8673f6ec935b0a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:15.409ex; height:2.843ex;" alt="{\textstyle \phi \left(\mathbf {x} \right)=\phi \left(\left\|\mathbf {x} \right\|\right)}"></span> is a <a href="/wiki/Radial_function" title="Radial function">radial function</a>. The norm is usually <a href="/wiki/Euclidean_distance" title="Euclidean distance">Euclidean distance</a>, although other <a href="/wiki/Distance_function" class="mw-redirect" title="Distance function">distance functions</a> are also possible.
-</p>
+
+**Radial Basis Function (RBF)** é uma função definida no espaco euclidiano onde o valor de cada depende apenas de sua distância até a origem. Por exemplo uma radial function $$\phi$$ em duas dimensões tem a seguinte forma:
+
+$$
+\phi ( x,y) \ =\ \varphi ( r) ,\ r=\sqrt{x^{2} +y^{2}}
+$$
+
+A função é de base radial apenas se não houver variação quando houver rotação mantendo o ponto de origem fixado. Segue alguns exemplos de funções radiais:
+
+$$
+\begin{matrix}
+f( x) =\sqrt{1+\sigma ^{2} +x^{2}} &  & f( x) =e^{-\frac{1}{2\sigma ^{2}} \ x^{2}}\\
+ &  & \\
+f( x) =x^{\sigma ^{2}}\ln x &  & f( x) =\frac{1}{1+\sigma ^{2} x^{2}}
+\end{matrix}
+$$
+
+
 
 ## Comportamento da função
 
@@ -215,6 +103,8 @@ $$
     <label for="ex1-c"> $$c$$ </label>
     <input id="ex1-c" type="range" min="-50" max="50" value="0" style="width:50%;" oninput="updateGraph1({id: 0, center: this.value})">
 </center>
+
+<br>
 
 Somatórios de RBF`s são utilizado para criar interpolação. Este processo de interpolação é muito similar ao de uma rede neural e em algumas literaturas pode-se encontrar RBF`s Neural networks.
 
@@ -325,8 +215,9 @@ x & f( x)\\
 \end{array}
 $$
 
-
-# TODO Grafico com os pontos da função
+<center>
+    <img src="/assets/img/rbfex1input.svg" alt="/assets/img/rbfex1input.svg">
+</center>
 
 E que para resolver essa regressão vamos utilizar 2 centros:
 
@@ -349,7 +240,7 @@ $$
 R_{p} = e^{-\frac{1}{2\sigma ^{2}} .\parallel ( X_{i}) -( X_{p}) \parallel ^{2}}
 $$
 
-Sabendo que determinada entrada deve retornar a uma saída específica podemos construir um sistema utilizando a função
+Então podemos construir um sistema
 
 $$
 \begin{cases}
@@ -359,19 +250,24 @@ e^{-0.5\parallel ( x_{3}) -( c_{1}) \parallel ^{2}} a_{1} +e^{-0.5\parallel ( x_
 \end{cases}
 $$
 
-
 $$
 \begin{cases}
 e^{-0.5\parallel ( 2) -( 2) \parallel ^{2}} a_{1} +e^{-0.5\parallel ( 2) -( 4) \parallel ^{2}} a_{2} +b=3\\
 e^{-0.5\parallel ( 3) -( 2) \parallel ^{2}} a_{1} +e^{-0.5\parallel ( 3) -( 4) \parallel ^{2}} a_{2} +b=6\\
 e^{-0.5\parallel ( 4) -( 2) \parallel ^{2}} a_{1} +e^{-0.5\parallel ( 4) -( 4) \parallel ^{2}} a_{2} +b=5
 \end{cases}\\
+$$
+
+$$
 \\
 \begin{cases}
 e^{-0.0} a_{1} +e^{-2.0} a_{2} +b=3\\
 e^{-0.5} a_{1} +e^{-0.5} a_{2} +b=6\\
 e^{-2.0} a_{1} +e^{-0.0} a_{2} +b=5
 \end{cases}\\
+$$
+
+$$
 \\
 \begin{cases}
 1.0000a_{1} +0.1353 a_{2} +b1.0000=3\\
@@ -380,7 +276,7 @@ e^{-2.0} a_{1} +e^{-0.0} a_{2} +b=5
 \end{cases}
 $$
 
-Através da resolução de sistemas pelo método da matriz inversa/pseudo inversa podemos resolver o sistema e encontrar as incógnitas:
+Conseguimos resolver o sistema através do médoto da matriz inversa para matrizes quadradas e o da pseudo inversa para as demais.
 
 
 $$
@@ -408,7 +304,7 @@ A
 $$
 
 $$
- \begin{array}{l}
+
 \\
 \begin{bmatrix}
 R
@@ -417,6 +313,9 @@ a
 \end{bmatrix}_{3x1} =\begin{bmatrix}
 A
 \end{bmatrix}_{3x1}\\
+$$
+
+$$
 \\
 \begin{bmatrix}
 R
@@ -425,8 +324,14 @@ R
 0.6065 & 0.6065 & 1.0000\\
 0.1353 & 1.0000 & 1.0000
 \end{bmatrix}_{3x3}\\
+$$
+
+$$
 \\
 \frac{1}{[ R]} =\left([ R]^{t} .[ R]\right)^{-1} .[ R]^{t}\\
+$$
+
+$$
 \\
 [ R]^{t} .[ R] =\begin{bmatrix}
 1.0000 & 0.6065 & 0.1353\\
@@ -437,18 +342,27 @@ R
 0.6065 & 0.6065 & 1.0000\\
 0.1353 & 1.0000 & 1.0000
 \end{bmatrix}_{3x3}\\
+$$
+
+$$
 \\
 [ R]^{t} .[ R] =\begin{bmatrix}
 1.3862 & 0.6386 & 1.7419\\
 0.6386 & 1.3262 & 1.7419\\
 1.7419 & 1.7419 & 3.0000
 \end{bmatrix}_{3x3}\\
+$$
+
+$$
 \\
 \left([ R]^{t} .[ R]\right)^{-1} =\begin{bmatrix}
 248.9582 & 247.6207 & -288.3246\\
 247.6207 & 248.9582 & -288.3246\\
 -288.3246 & -288.3246 & 335.1485
 \end{bmatrix}_{3x3}\\
+$$
+
+$$
 \\
 \left([ R]^{t} .[ R]\right)^{-1} .[ R]^{t} \ =\begin{bmatrix}
 248.9582 & 247.6207 & -288.3246\\
@@ -459,12 +373,18 @@ R
 0.6065 & 0.6065 & 1.0000\\
 0.1353 & 1.0000 & 1.0000
 \end{bmatrix}_{3x3}\\
+$$
+
+$$
 \\
 \left([ R]^{t} .[ R]\right)^{-1} .[ R]^{t} \ =\begin{bmatrix}
 -5.8546 & 12.8657 & -7.0111\\
 -7.0111 & 12.8657 & -5.8546\\
 7.8034 & -146069 & 7.8034
 \end{bmatrix}_{3x3} =\frac{1}{[ R]}\\
+$$
+
+$$
 \\
 \begin{bmatrix}
 a
@@ -472,7 +392,6 @@ a
 A
 \end{bmatrix}\\
 \\
-\end{array}
 $$
 
 $$
@@ -489,6 +408,9 @@ $$
 6\\
 5
 \end{bmatrix}_{3x1}\\
+$$
+
+$$
 \\
 f( x) =\sum ^{2}_{p=1} \lambda e^{-\frac{1}{2\sigma ^{2}} \ (x)^{2}}\\
 \\
@@ -507,6 +429,9 @@ X=( 2) \Longrightarrow 24.5749e^{0.0} +26.8879e^{-2.0} -25.2138\ =3\\
 X=( 3) \Longrightarrow 24.5749e^{-0.5} +26.8879e^{-0.5} -25.2138\ =6\\
 \\
 X=( 4) \Longrightarrow 24.5749e^{-2.0} +26.8879e^{0.0} -25.2138\ =5\\
+$$
+
+$$
 \\
 f( 1.5) =-2.3451\\
 \\
@@ -517,7 +442,9 @@ f( 3.5) =+6.4930\\
 f( 4.5) =-0.4055\\
 $$
 
-
+<center>
+    <img src="/assets/img/rbfex1output.svg" alt="/assets/img/rbfex1output.svg">
+</center>
 <!-- 
 ## Aproximação
 
