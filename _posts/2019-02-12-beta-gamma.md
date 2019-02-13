@@ -1,0 +1,193 @@
+---
+layout: post
+title:  "Função Gamma (Γ)"
+date:	2019-02-12 06:43:00 -0200
+subtitle: ""
+comments: true
+categories: Math
+---
+
+
+<script src="https://tikzwolke.com/v1/tikzwolke.js"></script>
+
+n=1
+$$
+ \begin{array}{l}
+\Gamma ( n) =\int ^{\infty }_{0} x^{n-1} \ e^{-x} \ dx\\
+\\
+\Gamma ( 1) =\int ^{\infty }_{0} x^{1-1} \ e^{-x} \ dx\\
+\\
+\Gamma ( 1) =\int ^{\infty }_{0}\underbrace{x^{0}}_{\begin{bmatrix}
+v
+\end{bmatrix}}\underbrace{e^{-x}}_{\begin{bmatrix}
+\acute{u}
+\end{bmatrix}} \ \ dx
+\end{array}
+$$
+
+$$
+\int\nolimits ^{b}_{a}\acute{u} v=uv\ -\int\nolimits ^{b}_{a} u\acute{v}
+$$
+
+$$
+ \begin{array}{l}
+\Gamma ( 1) =\frac{-x^{0}}{e^{0}} \ -\frac{-x^{0}}{e^{\infty }} +\int\nolimits ^{\infty }_{0} e^{-x} 0\ dx\\
+\\
+\Gamma ( 1) =e^{0} \ -e^{-\infty }\\
+\\
+\Gamma ( 1) =1
+\end{array}
+$$
+
+----
+
+n=2
+
+$$
+ \begin{array}{l}
+\Gamma ( n) =\int ^{\infty }_{0} x^{n-1} \ e^{-x} \ dx\\
+\\
+\Gamma ( 2) =\int ^{\infty }_{0} x^{2-1} \ e^{-x} \ dx\\
+\\
+\Gamma ( 2) =\int ^{\infty }_{0}\underbrace{x^{1}}_{\begin{bmatrix}
+v
+\end{bmatrix}}\underbrace{e^{-x}}_{\begin{bmatrix}
+\acute{u}
+\end{bmatrix}} \ \ dx
+\end{array}
+$$
+
+$$
+\int\nolimits ^{b}_{a}\acute{u} v=uv\ -\int\nolimits ^{b}_{a} u\acute{v}
+$$
+
+$$
+ \begin{array}{l}
+\Gamma ( 2) =0+1\int\nolimits ^{\infty }_{0} e^{-x} \ x^{0} \ dx\\
+\\
+\Gamma ( 2) =e^{0} \ -e^{-\infty }\\
+\\
+\Gamma ( 2) =1
+\end{array}
+$$
+
+o que se for continuado temos esses resultados
+
+$$
+ \begin{array}{l}
+\Gamma ( 1) =\int ^{\infty }_{0} x^{0} \ e^{-x} \ dx\ =1\\
+\\
+\Gamma ( 2) =\int ^{\infty }_{0} x^{1} \ e^{-x} \ dx\ =1\int ^{\infty }_{0} x^{0} \ e^{-x} \ dx\\
+\\
+\Gamma ( 3) =\int ^{\infty }_{0} x^{2} \ e^{-x} \ dx\ =2\int ^{\infty }_{0} x^{1} \ e^{-x} \ dx\\
+\\
+\Gamma ( 4) =\int ^{\infty }_{0} x^{3} \ e^{-x} \ dx\ =3\int ^{\infty }_{0} x^{2} \ e^{-x} \ dx\\
+\\
+\Gamma ( 5) =\int ^{\infty }_{0} x^{4} \ e^{-x} \ dx\ =4\int ^{\infty }_{0} x^{3} \ e^{-x} \ dx\\
+\\
+\Gamma ( 6) =\int ^{\infty }_{0} x^{5} \ e^{-x} \ dx\ =5\int ^{\infty }_{0} x^{4} \ e^{-x} \ dx
+\end{array}
+$$
+
+que pode ser reescrito da seguinte forma:
+
+$$
+ \begin{array}{l}
+\Gamma ( 1) =1\\
+\\
+\Gamma ( 2) =1\Gamma ( 1)\\
+\\
+\Gamma ( 3) =2\Gamma ( 2)\\
+\\
+\Gamma ( 4) =3\Gamma ( 3)\\
+\\
+\Gamma ( 5) =4\Gamma ( 4)\\
+\\
+\Gamma ( 6) =5\Gamma ( 5)
+\end{array}
+$$
+
+Explicar o desenvolvimento
+
+$$
+ \begin{array}{l}
+\Gamma ( n+1) =n\Gamma ( n)\\
+\\
+\Gamma ( n+1) =n!\\
+\\
+n!=n\Gamma ( n)\\
+\\
+\Gamma ( n) =\frac{n!}{n}\\
+\end{array}
+$$
+
+Dadas as identidades podemos integrar funções do tipo polinomio exponenciais de uma forma mais simples utilizando o fatorial (!)
+
+$$
+ \begin{array}{l}
+f( x) =x^{1} e^{-x}\\
+\\
+\int ^{\infty }_{0} x^{1} e^{x} \ dx\ =\ \Gamma ( 2) \ =\ 1!\\
+\\
+\\
+f( x) =x^{2} e^{-x}\\
+\\
+\int ^{\infty }_{0} x^{2} e^{x} \ dx\ =\ \Gamma ( 3) \ =\ 2!\\
+\\
+\\
+f( x) =x^{3} e^{-x}\\
+\\
+\int ^{\infty }_{0} x^{3} e^{x} \ dx\ =\ \Gamma ( 4) \ =\ 3!
+\end{array}
+$$
+
+Atraves da função Gamme também é possivel encontrar o fatorial de valores fracionarios dado que $$n! = n\Gamma (n)$$
+
+$$
+\Gamma ( 1.5) =\int ^{\infty }_{0} x^{1/2} e^{x} \ dx\ =\ 0.886270\ =\frac{\sqrt{\pi }}{2} \ =0.5!
+$$
+
+Atraves dessa definição conseguimos resolver a integral e vários tipos de função, ex:
+
+$$
+\int ^{\infty }_{0} y^{-\frac{1}{2}} e^{-2y} \ dy
+$$
+
+Dado que Gamma de n é definido por:
+
+$$
+\Gamma ( n) =\int ^{\infty }_{0} x^{n-1} \ e^{-x} \ dx
+$$
+
+Podemos forcar algumas identidades:
+
+$$
+y\ =\ \frac{x}{2} \ \therefore x=2y
+$$
+
+
+Para
+$$
+y \longrightarrow  0\ \Rightarrow x\ \longrightarrow  \ 0
+$$
+
+Para
+$$
+y \longrightarrow  \infty \ \Rightarrow x \longrightarrow  \infty
+$$
+
+$$
+\frac{dy}{dx} =\frac{1}{2} \ \therefore dy=\frac{1}{2} dx
+$$
+
+Então:
+
+$$
+ \begin{array}{l}
+\int ^{\infty }_{0}\left(\frac{x}{2}\right)^{-\frac{1}{2}} e^{-x} \ dx\\
+\\
+\frac{\sqrt{2}}{2} \ \int ^{\infty }_{0} x^{\frac{1}{2} -1} e^{-x} dx\\
+\\
+\frac{\sqrt{2}}{2} \Gamma \ \left(\frac{1}{2}\right) =\frac{1}{2} \ \sqrt{2}\sqrt{\pi } =\frac{1}{2}\sqrt{2\pi } =\sqrt{\frac{\pi }{2}}
+\end{array}
+$$
