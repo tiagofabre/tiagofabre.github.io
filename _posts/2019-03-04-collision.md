@@ -38,14 +38,15 @@ for(let i=0; i < lengthObstacles; i++) {
 
 drawObstacles(null, obstacles)
 
-canvas.addEventListner('touchmove', event => {
+canvas.addEventListener('touchmove', event => {
     mousePositionX = event.offsetX
     mousePositionY = event.offsetY
 
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
     drawRect(mousePositionX, mousePositionY, rectWidth, rectHeight, "#773d92")
-    drawObstacles(event, obstacles))
+    drawObstacles(event, obstacles)
+})
 
 canvas.addEventListener('mousemove', event => {
     mousePositionX = event.offsetX
