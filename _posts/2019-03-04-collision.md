@@ -2,7 +2,7 @@
 layout: post
 title:  "Detecção de colisão"
 date:	2019-03-04 16:14:00 -0200
-subtitle: ""
+subtitle: "Detecção de colisão entre retângulos"
 comments: true
 categories: Gamedev
 ---
