@@ -103,8 +103,8 @@ function drawRect(x, y, w, h, color) {
 ``` javascript
 function checkCollision(box1, box2)
 {
-    if(box1.right > box2.left) {
-        if(box1.left < box2.right) {
+    if(box1.right >= box2.left) {
+        if(box1.left <= box2.right) {
             if(box1.bottom >= box2.top) {
                 if(box1.top <= box2.bottom) {
                     return true
