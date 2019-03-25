@@ -11,6 +11,8 @@ categories: Big-Data, database, distributed systems
 
 Na ciência da computação o teorema CAP diz que é impossível para um sistema de computação distribuída prover as três garantias: **Consistência**, **disponibilidade** e **tolerância a particionamento** (funcionamento mesmo que haja interrupção de comunicação entre um ou alguns nós do sistema). O que é diferente da garantia **ACID**.
 
-Banco de dados tradicionais **ACID** como os **RDBMS** escolhem consistência ao invés de disponibilidade (Possui uma estrutura solida na forma de guardar os dados, mas perde performance por e pode demorar a responder requisições devido à essa estrutura ser complexa). O exemplo inverso disso são os bancos de dados **NoSQL** que escolhem disponibilidade ao invés de consistência.
+Banco de dados tradicionais como os *RDBMS* com apenas um nó (Master) possui consistência e disponibilidade, porém nessa disposição não são considerados um sistema distribuído por não ter uma comunicação pela rede.
 
-Em desenvolvimento...
+Bancos de dados que cuidam de dados sensíveis ou que podem causar prejuízos caso o dado não seja o mais atual possível escolhem abrir mão da disponibilidade o que faz com que eles possam retornar timeout em algumas tentativas de escritas dos clientes. Porém o banco sempre vai retornar o valor correto do saldo dos clientes.
+
+Uma outra configuração dos bancos é escolher abrir mão da consistência, ou seja nem sempre o banco vai retornar o valor mais atualizado dos registros, pois o banco pode retornar respostas no meio de um sync com suas réplicas. Esse tipo de banco é utilizado preferêncialmente para guardar logs ou métricas de negócio.
