@@ -7,7 +7,7 @@ comments: true
 categories: node.js
 ---
 
-É um padrão muito utilizado no Node.js que nos permite emitir eventos para múltiplos listeners. Pode ser utilizado em momento em que apenas um callback de um evento asincrono não é suficiente.
+É um padrão muito utilizado no Node.js que nos permite emitir eventos para múltiplos listeners. Pode ser utilizado em momento em que apenas um callback de um evento assíncrono não é suficiente.
 
 
 Exemplo de implementação de um EventEmitter:
@@ -64,7 +64,7 @@ Uma variação comportamental do `EventEmitter` é `once()` que acontece apenas 
 
 #### Tratamento de exceções
 
-Por padrão o event emiter não tem um evento 'error' e quando um evento deste tipo é emitido o node apenas lança uma exceção com throw.
+Por padrão o event emitter não tem um evento 'error' e quando um evento deste tipo é emitido o node apenas lança uma exceção com throw.
 
     {% highlight javascript %}
     const myEmitter = new MyEmitter();

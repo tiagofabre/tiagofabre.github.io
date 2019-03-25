@@ -19,7 +19,7 @@ Matematicamente o combinador linear (Σ) deste neurônio (uk) da é representado
 
 <img src="https://raw.githubusercontent.com/tiagofabre/tiagofabre.github.io/master/images/neuron/neuron-equation.png">
 
-A `função de ativação` F(a) serve como um limitador da `saída` restringindo os valores para intervalos previamente definidos. Além de agir sobre osvalores de `saída` do neurônio, a `função de ativação` também tem a função de aumentar ou diminuir a entrada liquida de um neurônio, tendo geralmente um valor fixo iguala 1 ou -1. Dessa forma, a representação do valor de `saída` do neurônio seria dada por
+A `função de ativação` F(a) serve como um limitador da `saída` restringindo os valores para intervalos previamente definidos. Além de agir sobre os valores de `saída` do neurônio, a `função de ativação` também tem a função de aumentar ou diminuir a entrada liquida de um neurônio, tendo geralmente um valor fixo iguala 1 ou -1. Dessa forma, a representação do valor de `saída` do neurônio seria dada por
 
 <img src="https://raw.githubusercontent.com/tiagofabre/tiagofabre.github.io/master/images/neuron/activation-function.png">
 

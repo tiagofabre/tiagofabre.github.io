@@ -12,7 +12,7 @@ categories: webTooling
 - Especificar em cada versão de uma aplicação as features que foram desenvolvidas e o bugs que foram corrigidos
 
 
-Desenvolver software pode virar uma tarefa complexa e quando não há organização. Um recurso que se utiliza é criar um arquivo de `changelog` 
+Desenvolver software pode virar uma tarefa complexa e quando não há organização. Um recurso que se utiliza é criar um arquivo de `changelog`
 que guarda todas as modificações que aconteceram em determinada aplicação entre uma versão e outra. Mas criar este arquivo de logs pode ficar
 complicado pois os devs corrigem as tarefas e acabam esquecendo de alterar o `changelog`.
 

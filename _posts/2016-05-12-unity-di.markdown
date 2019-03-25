@@ -13,7 +13,7 @@ categories: unity3d Design-patterns
 
 As consequências desse desacoplamento são:
 
-- Maior indice de reaproveitamento de código entre projetos
+- Maior índice de reaproveitamento de código entre projetos
 - Facilidade na criação de Moocs para testes unitários
 - Facilidade em seguir o princípio de responsabilidade única (SOLID)
 
@@ -46,7 +46,7 @@ Um exemplo simples de como se utiliza a injeção de dependência:
 
 
  {% highlight c# %}
-//Sem injeção de denpendências
+//Sem injeção de dependências
 public class Foo
 {
     ISomeService _service;
@@ -117,7 +117,7 @@ public class Foo
 
 {% endhighlight %}
 
-A classe Foo receberá uma unica instância de Bar e qualquer classe que precisar da depenência de Bar receberá a mesma dependência, o que pode mudar através de outros binds caso precise criar uma nova instância sempre que alguem precisar.
+A classe Foo receberá uma única instância de Bar e qualquer classe que precisar da dependência de Bar receberá a mesma dependência, o que pode mudar através de outros binds caso precise criar uma nova instância sempre que alguém precisar.
 
 
 ### Binds

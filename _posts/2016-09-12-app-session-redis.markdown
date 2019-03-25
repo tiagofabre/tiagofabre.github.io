@@ -4,7 +4,7 @@ title:  "Guardando sessões http no redis"
 subtitle:  "Integrando a sessão do Express.js ao redis para escalar horizontalmente o backend"
 date:	2016-12-09 21:49:09 -0300
 comments: true
-categories: web session, web developement
+categories: web session, web development
 ---
 
 ## Session

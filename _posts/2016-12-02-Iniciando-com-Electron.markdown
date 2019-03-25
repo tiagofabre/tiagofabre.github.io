@@ -7,7 +7,7 @@ comments: true
 categories: electron node.js
 ---
 
-É um framework opensource para criar aplicações nativas windows, linux e OSX utilizando tecnologias web (Javascript, HTML e CSS). Por baixo dos panos o Electron combina Node.js e o Chromium em uma única aplicação e surgiu em 2013 e é o framework utilizado para o desenvolvimento do Atom editor e desde então existem muitas aplicações de grandes empresas feitas através do Elecron.
+É um framework open-source para criar aplicações nativas windows, linux e OSX utilizando tecnologias web (Javascript, HTML e CSS). Por baixo dos panos o Electron combina Node.js e o Chromium em uma única aplicação e surgiu em 2013 e é o framework utilizado para o desenvolvimento do Atom editor e desde então existem muitas aplicações de grandes empresas feitas através do Electron.
 
 
 ### Hello World Electron

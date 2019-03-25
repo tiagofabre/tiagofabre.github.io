@@ -12,13 +12,13 @@ categories: Machine-learning data-science
 
 <!-- # Introdução
 
-O forte interesse em aprendizagem de maquina é parcialmente inpulsionado pela expectativa de que eles vão prover uma nova fonte de algorítimos/arquiteturas para processar dados complexos. Essas expectativas se baseiam na capacidade do cérebro de animais os quais consegume lidar com sofisticados reconhecimentos de padrões e tarefas muito além das realizadas pelos sistemas e arquiteturas atuais.
+O forte interesse em aprendizagem de maquina é parcialmente impulsionado pela expectativa de que eles vão prover uma nova fonte de algorítimos/arquiteturas para processar dados complexos. Essas expectativas se baseiam na capacidade do cérebro de animais os quais conseguem lidar com sofisticados reconhecimentos de padrões e tarefas muito além das realizadas pelos sistemas e arquiteturas atuais.
 
-Um exemplo de uma tarefa diária que ilustra esse ponto é o reconhecimento de voz (speech) humana. Para um reconhecimento automático da voz um desejo é que se consiga extrair as propriedades dos dados de entrada mesmo ele estando sujeito a distorções não lineares como ruído, genero, idade, saúde e sotáque do interlocutor, o que introduz uma grande dificuldade.
+Um exemplo de uma tarefa diária que ilustra esse ponto é o reconhecimento de voz (speech) humana. Para um reconhecimento automático da voz um desejo é que se consiga extrair as propriedades dos dados de entrada mesmo ele estando sujeito a distorções não lineares como ruído, gênero, idade, saúde e sotaque do interlocutor, o que introduz uma grande dificuldade.
 
 Na tentativa de contornar esse problema, modelos de aprendizagem de maquina forma empregados. Tendo a virtude de não precisar de um modelo explicito para o reconhecimento de voz a `Multilayer perceptron` incorpora uma série de camadas "escondidas" cuja tarefa é codificar as restrições dos dados de entrada. Isso é alcançado variando o valor dos pesos com o objetivo de minimizar o erro em relação a entrada/saída dos dados de treinamento. Este processo ficou conhecido como `aprendizagem`. E a habilidade da rede produzir resultados razoáveis para dados não utilizados no treinamento é conhecido como `generalização`. Porém utilizar uma multilayer perceptron para resolver uma tarefa específica exige um esforço muito empírico pois ainda nos restam algumas questões como: Quantas camadas escondidas devem ser utilizadas? e em que organização elas devem estar? Quantos dados de treinamento são necessários? Qual deve ser o valor inicial dos pesos?
 
-Com o intuito de responder as questões acima surgiram novos modelos, os quais tentam deixar a modelagem mais explicita e menos empírica. Uma dessa técnicas é a interpolação em espaços multidimensionais através do `Radial Basis Funcions`. -->
+Com o intuito de responder as questões acima surgiram novos modelos, os quais tentam deixar a modelagem mais explicita e menos empírica. Uma dessa técnicas é a interpolação em espaços multidimensionais através do `Radial Basis Functions`. -->
 
 <!-- ## problema
 
@@ -43,7 +43,7 @@ Onde $$\phi$$ é uma função gaussiana -->
 </center>
 
 
-**Radial Basis Function (RBF)** é uma função definida no espaco euclidiano onde o valor de cada depende apenas de sua distância até a origem. Por exemplo uma radial function $$\phi$$ em duas dimensões tem a seguinte forma:
+**Radial Basis Function (RBF)** é uma função definida no espaço euclidiano onde o valor de cada depende apenas de sua distância até a origem. Por exemplo uma radial function $$\phi$$ em duas dimensões tem a seguinte forma:
 
 $$
 \phi ( x,y) \ =\ \varphi ( r) ,\ r=\sqrt{x^{2} +y^{2}}
@@ -166,9 +166,9 @@ $$
 
 <br>
 
-Através de sua versatilidade podemos mostrar exemplos de como construir algumas varieades de função atraves das RBF`s:
+Através de sua versatilidade podemos mostrar exemplos de como construir algumas variedades de função através das RBF`s:
 
-* Somatório de multiplos RBF`s com multiplos sinais
+* Somatório de múltiplos RBF`s e sinais
 
 $$
 f(x)=-e^{-\left(\frac{1}{0.8^{2}}( x-1)^{2}\right)} +e^{-\left(\frac{1}{0.8^{2}}( x-0)^{2}\right)} -e^{-\left(\frac{1}{0.8^{2}}( x+1)^{2}\right)}
@@ -276,7 +276,7 @@ $$
 \end{cases}
 $$
 
-Conseguimos resolver o sistema através do médoto da matriz inversa para matrizes quadradas e o da pseudo inversa para as demais.
+Conseguimos resolver o sistema através do método da matriz inversa para matrizes quadradas e o da pseudo inversa para as demais.
 
 
 $$
@@ -416,7 +416,7 @@ f( x) =\sum ^{2}_{p=1} \lambda e^{-\frac{1}{2\sigma ^{2}} \ (x)^{2}}\\
 \\
 $$
 
-Substituimos os $$\lambda$$ pelos valores encontrados e podemos testar nossa função de interpolação:
+Substituímos os $$\lambda$$ pelos valores encontrados e podemos testar nossa função de interpolação:
 
 $$
 \\
@@ -454,7 +454,7 @@ $$
 
 
 
-Resoluação de sistemas pelo metodo da matriz inversa
+Resolução de sistemas pelo método da matriz inversa
 
 $$
     fx=\begin{cases}
