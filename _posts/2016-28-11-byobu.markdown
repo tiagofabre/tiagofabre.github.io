@@ -2,6 +2,7 @@
 layout: post
 title:  "Byobu"
 date:	2016-11-28 12:16:34 -0300
+subtitle:  "Gerenciador de janelas e multiplexador de terminal"
 comments: true
 categories: linux
 ---
