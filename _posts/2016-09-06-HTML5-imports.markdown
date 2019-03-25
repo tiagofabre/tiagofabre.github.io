@@ -4,7 +4,7 @@ title:  "HTML5 Imports"
 subtitle:  "Entendendo o fluxo de importação de scripts"
 date:   2016-09-06 19:19:34 -0300
 comments: true
-categories: html javascript ecmascript
+categories: html javascript ecma-script
 ---
 
 ### Problema
@@ -13,7 +13,7 @@ categories: html javascript ecmascript
 <li>A execução do script acontece antes mas deveria ser após a renderização</li>
 </ul>
 
-A importação de 'scripts' no HTML acontece atraves da tag `script` ([Mais informações][mdn-script]) Porém a importação de multiplos scripts causa o problema de renderização bloqueante ou 'render blocking'
+A importação de 'scripts' no HTML acontece através da tag `script` ([Mais informações][mdn-script]) Porém a importação de múltiplos scripts causa o problema de renderização bloqueante ou 'render blocking'
 
 {% highlight html %}
 <script src="exemplo1.js"></script>
@@ -22,7 +22,7 @@ A importação de 'scripts' no HTML acontece atraves da tag `script` ([Mais info
 {% endhighlight %}
 
 ### Solução
-Com o HTML5 é possivel resolver este problema através dos atributos `async` e `defer` onde o `async` faz com que o script seja carregado em pararelo com os demais e o `defer` faz com que o script seja executado apena após a renderização do documento.
+Com o HTML5 é possível resolver este problema através dos atributos `async` e `defer` onde o `async` faz com que o script seja carregado em paralelo com os demais e o `defer` faz com que o script seja executado apena após a renderização do documento.
 
 {% highlight html %}
 <script async defer src="exemplo1.js"></script>
@@ -32,7 +32,7 @@ Com o HTML5 é possivel resolver este problema através dos atributos `async` e 
 
 ### Relacionados
 
-Importar libs essenciais de renderização (como jQuery) de forma asincrona [link][async-advanced]
+Importar libs essenciais de renderização (como jQuery) de forma assíncrona [link][async-advanced]
 Introdução a `Web Components` [link][web-components]
 
 [mdn-script]: https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/script

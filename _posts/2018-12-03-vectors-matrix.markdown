@@ -67,7 +67,7 @@ $$
 
 ### Propriedades
 
-* Distributative property 👍
+* Distributive property 👍
 
 $$
 A( B+C) =AB+AC
@@ -79,7 +79,7 @@ $$
 A( BC) =( AB) C
 $$
 
-* Cummutative property 👎
+* Commutative property 👎
 
 $$
  \begin{array}{l}
@@ -157,7 +157,7 @@ $$
 \end{bmatrix}}_{3x2}
 $$
 
-A matrizes acima não são multiplicaveis pois o numero de linhas da segunda não é igual ao numero de colunas da primeira assim como o exempli abaixo:
+A matrizes acima não são multiplicáveis pois o numero de linhas da segunda não é igual ao numero de colunas da primeira assim como o exempli abaixo:
 
 $$
 \underbrace{\begin{bmatrix}
@@ -199,7 +199,7 @@ $$
 
 ### Propriedades
 
-* Distributative property 👍
+* Distributive property 👍
 
 $$
 A\circ ( B+C) =A\circ B+A\circ C
@@ -211,7 +211,7 @@ $$
 A\circ ( B\circ C) =( A\circ B) \circ C
 $$
 
-* Commutativity property 👍
+* Commutative property 👍
 
 $$
 A\circ B=B\circ A
@@ -342,14 +342,11 @@ ea+fc\ =1\\
 eb+fa=0\\
 ga+hc=1\\
 gb+hd=0
-\end{matrix}\right. 
+\end{matrix}\right.
 \end{array}
 $$
 
-
-
-
-## Conteudo relacionado 
+## Conteúdo relacionado
 
 * Cameras de jogos e visualização de jogos ortogonais
 * Pseudo inversa de uma matriz

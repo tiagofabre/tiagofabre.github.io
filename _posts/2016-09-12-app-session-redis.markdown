@@ -11,11 +11,11 @@ categories: web session, web developement
 
 Sessão é um mecanismo que guarda determinadas informações no cliente através de cookies, os quais podem ser acessados pelo servidor no corpo das requisições. Um dos usos mais utilizados é para autorização de usuários, onde o cliente autentica com o servidor e o servidor cria uma sessão com a informação dizendo que aquele usuário ja está autenticado.
 
-A criação da sessão cria um objeto no servidor e envia para o usuario uma chave de acesso (através de cookies) a esse objeto. Por existir esse objeto no servidor chamamos essa operação de operação stateful, o que dificulta a utilização dessa aplicação em multiplas maquinas por estarem isoladas.
+A criação da sessão cria um objeto no servidor e envia para o usuário uma chave de acesso (através de cookies) a esse objeto. Por existir esse objeto no servidor chamamos essa operação de operação stateful, o que dificulta a utilização dessa aplicação em múltiplas maquinas por estarem isoladas.
 
 ## Redis
 
-Uma forma de fazer com que outro servidor tenha acesso a esse objeto da sessão é utilizando um banco de dados em memória o qual tem uma velocidade de escrita e leitura muito superior a de banco de dados convencionais. Onde o servidro que vai criar a sessão guarda a informação no redis e caso o loadbalancer da aplicação direcione o cliente para outro servidor o mesmo consegue saber se o cliente está logado acessando o objeto da sessão no redis.
+Uma forma de fazer com que outro servidor tenha acesso a esse objeto da sessão é utilizando um banco de dados em memória o qual tem uma velocidade de escrita e leitura muito superior a de banco de dados convencionais. Onde o servidor que vai criar a sessão guarda a informação no redis e caso o load-balancer da aplicação direcione o cliente para outro servidor o mesmo consegue saber se o cliente está logado acessando o objeto da sessão no redis.
 
 
 ## Express session
