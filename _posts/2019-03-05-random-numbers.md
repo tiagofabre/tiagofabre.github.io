@@ -4,7 +4,7 @@ title:  "Numeros aleatórios"
 date:	2019-03-05 16:53:00 -0200
 subtitle: "Investigando os métodos para gerar números aleatórios"
 Comments: true
-categories: Fundamentals
+categories: "math, fundamentals, computation"
 ---
 
 ## Aplicações

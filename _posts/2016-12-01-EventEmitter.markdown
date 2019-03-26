@@ -4,7 +4,7 @@ title:  "EventEmitter Pattern Node.js"
 subtitle:  "Aprendendo um novo padrão e entendendo melhor libs como socket.io"
 date:	2016-12-01 20:35:09 -0300
 comments: true
-categories: node.js
+categories: "computation, node.js"
 ---
 
 É um padrão muito utilizado no Node.js que nos permite emitir eventos para múltiplos listeners. Pode ser utilizado em momento em que apenas um callback de um evento assíncrono não é suficiente.

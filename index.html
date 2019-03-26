@@ -4,11 +4,17 @@ layout: default
 
 <div class="home">
 
-  <div class="grid" data-isotope='{ "itemSelector": ".grid-item", "layoutMode": "fitRows" }'>
+  <div class="category-container">
+    <button class="category-item" onclick="changeCategory(`gamedev`)">Gamedev</button>
+    <button class="category-item" onclick="changeCategory(`math`)">Matemática</button>
+    <button class="category-item" onclick="changeCategory(`computation`)">Computação</button>
+    <button class="category-item" onclick="changeCategory(`machine-learning`)">Machine learning</button>
+  </div>
+  
+  <div class="grid" >
     {% for post in site.posts %}
-    <div class="grid-item">
+    <div class="grid-item" data-category="{{ post.categories }}">
       <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
       <h2>
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
       </h2>
@@ -25,19 +31,20 @@ layout: default
     if ((host == window.location.host) && (window.location.protocol === "http:"))
         window.location.protocol = "https";
   </script>
-
+  <script>
+    function changeCategory(cat) {
+      iso.arrange({
+        filter: function( itemElem ) {
+          return itemElem.getAttribute("data-category").includes(cat)
+        }
+      })
+    }
+  </script>
   <script>
     var elem = document.querySelector('.grid');
     var iso = new Isotope(elem, {
-      // options
       itemSelector: '.grid-item',
-      layoutMode: 'fitRows'
-    });
-
-    // element argument can be a selector string
-    //   for an individual element
-    var iso = new Isotope('.grid', {
-      // options
+      layoutMode: 'masonry'
     });
   </script>
 </div>

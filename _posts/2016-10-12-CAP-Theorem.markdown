@@ -4,7 +4,7 @@ title:  "Teorema CAP"
 subtitle: "Consistência, disponibilidade e tolerância a particionamento"
 date:	2016-12-10 18:55:09 -0300
 comments: true
-categories: Big-Data, database, distributed systems
+categories: "computation, database, distributed systems"
 ---
 
 ## CAP Theorem
