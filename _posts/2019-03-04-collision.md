@@ -22,57 +22,81 @@ categories: "gamedev, computation"
 </style>
 
 <script>
-let canvas = document.querySelector("#collision_canvas")
-let ctx = null
-let rectWidth = 30
-let rectHeight = 30
-let obstacles = []
-let lengthObstacles = 25
 
-ctx = canvas.getContext("2d")
-
-for(let i=0; i < lengthObstacles; i++) {
-    obstacles.push({positionX: (Math.random() * ctx.canvas.width - 30) + 30,
-                    positionY: (Math.random() * ctx.canvas.height - 30) + 30})
+Number.prototype.clamp = function(min, max) {
+  return Math.min(Math.max(this, min), max)
 }
 
-drawObstacles(null, obstacles)
+const width = 600
+const height = 400
+const canvas = document.querySelector("#collision_canvas")
+const ctx = canvas.getContext("2d")
+const rectWidth = 30
+const rectHeight = 30
+const lengthObstacles = 150
+const collisionColor = "#d80559a1"
+const pointerColor = "#773d92"
 
-canvas.addEventListener('touchmove', event => {
-    mousePositionX = event.offsetX
-    mousePositionY = event.offsetY
+const palletColor = ["#FFF2F2","#FFBF59", "#E89951", "#FF9966", "#E86D51", "#FF6059", "#BF6060", "#F26B5E", "#F2913D"]
 
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+const obstacles = [... Array(lengthObstacles)].map(generateRandomRect)
 
-    drawRect(mousePositionX, mousePositionY, rectWidth, rectHeight, "#773d92")
-    drawObstacles(event, obstacles)
-})
+canvas.addEventListener('touchmove', drawWorld)
+canvas.addEventListener('mousemove', drawWorld)
 
-canvas.addEventListener('mousemove', event => {
-    mousePositionX = event.offsetX
-    mousePositionY = event.offsetY
+fillBackground(palletColor[0])
+drawObstacles(obstacles)
 
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-    drawRect(mousePositionX, mousePositionY, rectWidth, rectHeight, "#773d92")
-    drawObstacles(event, obstacles)
-})
+function clearCanvas() {
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+}
 
-function drawObstacles(event, obstacles) {
+function getColorFromPallet(pallet) {
+    const min=1; 
+    const max=pallet.length-1;  
+    const random =Math.floor(Math.random() * (+max - +min)) + +min;
+    return pallet[random]
+}
+
+function generateRandomRect() {
+    const elementWidth = (Math.random() * rectWidth * 3).clamp(rectWidth, rectWidth * 1.6)
+    const elementHeight = (Math.random() * rectHeight * 3).clamp(rectHeight, rectHeight * 1.6)
+    return {width:        elementWidth,
+            height:       elementHeight,
+            positionX:    (Math.random() * ctx.canvas.width).clamp(elementWidth/2, ctx.canvas.width - elementWidth/2),
+            positionY:    (Math.random() * ctx.canvas.height).clamp(elementHeight/2, ctx.canvas.height - elementHeight/2),
+            initialColor: getColorFromPallet(palletColor)}
+}
+
+function drawRect(x, y, w, h, color) {
+    ctx.fillStyle = color;
+    ctx.fillRect(x-(w/2), y-(h/2), w, h);
+}
+
+function chooseColor(collision, element) {
+    return collision ? collisionColor : element.initialColor
+}
+
+function fillBackground(color) {
+    ctx.rect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    ctx.fillStyle = color;
+    ctx.fill();
+}
+
+function drawObstacles(obstacles) {
     obstacles.forEach(function(e) {
-        const collision = event ? checkCollision(event, e) : false
-        drawRect(e.positionX, e.positionY, rectWidth, rectHeight, collision ? "#d80559a1" : "#16a284d9")
+        drawRect(e.positionX, e.positionY, e.width, e.height, e.color ? e.color : e.initialColor)
     })
 }
 
-function checkCollision(mouseEvent, obstacle) {
-    mx = mouseEvent.offsetX
-    my = mouseEvent.offsetY
+function checkCollision(event, obstacle) {
+    const {offsetX, offsetY} = event
 
-    box1 = {left: mx - rectWidth/2,
-            right: mx + rectWidth/2,
-            top: my - rectHeight/2,
-            bottom: my + rectHeight/2}
+    box1 = {left: offsetX - obstacle.width/2,
+            right: offsetX + obstacle.width/2,
+            top: offsetY - obstacle.height/2,
+            bottom: offsetY + obstacle.height/2}
 
     box2 = {left: obstacle.positionX - rectWidth/2,
             right: obstacle.positionX + rectWidth/2,
@@ -88,11 +112,16 @@ function checkCollision(mouseEvent, obstacle) {
     return false
 }
 
-function drawRect(x, y, w, h, color) {
-    ctx.fillStyle = color;
-    ctx.fillRect(x-(w/2), y-(h/2), w, h);
-}
+function drawWorld(event) {
+    const {offsetX, offsetY} = event
+    const colorByCollision = (event, e) => chooseColor(checkCollision(event, e), e)
+    const obstaclesWithCollision = obstacles.map(e => Object.assign(e, {color: colorByCollision(event, e)}))
 
+    clearCanvas()
+    fillBackground(palletColor[0])
+    drawObstacles(obstaclesWithCollision)
+    drawRect(offsetX, offsetY, rectWidth, rectHeight, pointerColor)
+}
 </script>
 
 É dada pela seguinte verificação:
