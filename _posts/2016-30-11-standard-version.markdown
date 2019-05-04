@@ -46,11 +46,10 @@ Para que o `standard-version` identifique as features e correções de bugs as m
 
     fix(Usuários): Corrigido o bug ao entrar um novo usuário no momento X
     feat(Autenticação): Autenticação do usuário através da JWT
-    
-O plugin oferece o Badge [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/conventional-changelog/standard-version)
+
  que pode ser utilizado atraves de:
  
- <pre class="editor editor-colors"><div class="line"><span class="source gfm"><span class="link"><span class="punctuation definition begin gfm"><span>[!</span><span>[</span></span><span class="entity gfm"><span>Standard&nbsp;Version</span></span><span class="punctuation definition end gfm"><span>]</span></span><span class="markup underline link gfm"><span class="punctuation definition begin gfm"><span>(</span></span><span>https://img.shields.io/badge/release-standard%20version-brightgreen.svg</span><span class="punctuation definition end gfm"><span>)</span></span></span><span class="punctuation definition end gfm"><span>]</span></span><span class="markup underline link gfm"><span class="punctuation definition begin gfm"><span>(</span></span><span>https://github.com/conventional-changelog/standard-version</span><span class="punctuation definition end gfm"><span>)</span></span></span></span></span></div></pre>
+ [Github - standard-version](https://github.com/conventional-changelog/standard-version)
  
 ## Referência
 
