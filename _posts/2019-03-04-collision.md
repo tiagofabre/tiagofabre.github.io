@@ -79,14 +79,11 @@ function checkCollision(mouseEvent, obstacle) {
             top: obstacle.positionY - rectHeight/2,
             bottom: obstacle.positionY + rectHeight/2}
 
-    if(box1.right > box2.left) {
-        if(box1.left < box2.right) {
-            if(box1.bottom >= box2.top) {
-                if(box1.top <= box2.bottom) {
-                    return true
-                }
-            }
-        }
+    if((box1.right >= box2.left) &&
+       (box1.left <= box2.right) &&
+       (box1.bottom >= box2.top) &&
+       (box1.top <= box2.bottom)) {
+        return true
     }
     return false
 }
@@ -101,16 +98,13 @@ function drawRect(x, y, w, h, color) {
 É dada pela seguinte verificação:
 
 ``` javascript
-function checkCollision(box1, box2)
+function checkCollision(b1, b2)
 {
-    if(box1.right >= box2.left) {
-        if(box1.left <= box2.right) {
-            if(box1.bottom >= box2.top) {
-                if(box1.top <= box2.bottom) {
-                    return true
-                }
-            }
-        }
+    if((b1.right >= b2.left) &&
+       (b1.left <= b2.right) &&
+       (b1.bottom >= b2.top) &&
+       (b1.top <= b2.bottom)) {
+        return true
     }
     return false
 }
