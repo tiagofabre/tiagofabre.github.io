@@ -1176,9 +1176,9 @@ def rbf(inp, out, center):
 ```
 
 ``` python
-inp = np.array([2, 3, 4])
-out = np.array([3, 6, 5])
-center = np.array([2, 4])
+inp = np.array([2, 3, 4, 7])
+out = np.array([3, 6, 5, 0])
+center = np.array([0, 3, 7])
 
 rbf_instance = rbf(inp, out, center)
 
