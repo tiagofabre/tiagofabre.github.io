@@ -82,6 +82,8 @@ Quando temos uma função que possui propriedades matemáticas podemos aplicar a
     - list.Length = list.Sort().Length
 
 - Hard to Prove, Easy to Verify
+    
+    ```javascript
     - list.sort()
           .reduce((acumulador, valorAtual, indice, array) => {
             const proximo = array[indice+1];
@@ -89,4 +91,5 @@ Quando temos uma função que possui propriedades matemáticas podemos aplicar a
                 acumulador.push(valorAtual < proximo)
             return acumulador
             }, [])
-          .every(x => x === true)
+          .every(x => x)
+    ```
