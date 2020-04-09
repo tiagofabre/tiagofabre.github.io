@@ -2,6 +2,142 @@
 layout: default
 ---
 
+<style>
+.page-content { padding-top: 0px;}
+</style>
+
+<div id="presentation" style="width: 100%; height: 200px;display: flex;
+  justify-content: center;
+  align-items: center;">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js"></script>
+    <script>
+      let l1 = 1.4, l2 = 0.3;
+      let [x, y] = iterate(0, 0);
+
+      let HEIGHT = 200, 
+          WIDTH = window.innerWidth, 
+          
+          windowHalfX = WIDTH / 2, 
+          windowHalfY = HEIGHT / 2, 
+          mouseX = 0, mouseY = 0;
+
+      let scene, camera, renderer;
+
+      let particleCount = 100000, 
+          h,
+          color,
+          size,
+          materials = [],
+          parameters = {},
+          parameterCount,
+          particles,
+          fogHex = 0x000000,
+          fogDensity = 0.0002;
+
+      init();
+
+      function iterate(xn, yn) {
+          return [1+yn -l1*(xn*xn), l2*xn]
+      }
+
+      function setupDOM() {
+          let container = document.querySelector('#presentation')
+          return container
+      }
+
+      function init() {
+          let fieldOfView = 15, 
+              aspectRatio = WIDTH / HEIGHT, 
+              nearPlane = 1, 
+              farPlane = 8000, 
+              cameraZ = farPlane / 3;
+          
+          camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane)
+          
+          camera.position.z = cameraZ
+          
+          scene = new THREE.Scene()
+
+          scene.fog = new THREE.FogExp2(fogHex, fogDensity)
+          
+          let container = setupDOM()
+          
+          
+          let geometry = new THREE.Geometry()
+              
+          for (let i = 0; i < particleCount; i++) {
+              [x, y] = iterate(x, y)
+              
+              let vertex = new THREE.Vector3()
+              vertex.x = x * 2000 - 1000
+              vertex.y = y * 2000 - 200
+              vertex.z = x+y * 10
+
+              geometry.vertices.push(vertex)
+          }
+
+          parameters = [[[1, 1, 0.5], 15],
+                        [[0.95, 1, 0.5], 14],
+                        [[0.90, 1, 0.5], 13],
+                        [[0.85, 1, 0.5], 12],
+                        [[0.80, 1, 0.5], 11]];
+          
+          for (let i = 0; i < 5; i++) {
+              materials[i] = new THREE.PointCloudMaterial({size: 25})
+              particles = new THREE.PointCloud(geometry, materials[i])
+              particles.rotation.x = Math.random() * 6;
+              particles.rotation.y = Math.random() * 6;
+              particles.rotation.z = Math.random() * 6;
+              scene.add(particles)
+          }
+
+              
+          var color = new THREE.Color("rgb(50, 50, 50)");
+
+          renderer = new THREE.WebGLRenderer()
+          renderer.setClearColor(color);
+        
+          renderer.setPixelRatio(window.devicePixelRatio)
+          renderer.setSize(WIDTH, HEIGHT)
+
+          container.appendChild(renderer.domElement)
+          // window.addEventListener('resize', onWindowResize, false)
+          
+          animate(camera, color, h, materials, renderer);
+      }
+
+      function animate(camera, color, h, materials, renderer) {
+          requestAnimationFrame(() => animate(camera, color, h, materials, renderer))
+          render(camera, color, h, materials, renderer)
+      }
+
+      function render(camera, color, h, materials, renderer) {
+          let time = Date.now() * 0.00005
+
+          camera.position.x += (mouseX - camera.position.x) * 0.05
+          camera.position.y += (-mouseY - camera.position.y) * 0.05
+
+          camera.lookAt(scene.position)
+
+          for (let i = 0; i < scene.children.length; i++) {
+              let object = scene.children[i]
+              if (object instanceof THREE.PointCloud)
+                  object.rotation.y = time * (i < 4 ? i + 1 : -(i + 1))
+          }
+
+          for (let i = 0; i < materials.length; i++) {
+              color = parameters[i][0]
+              h = (360 * (color[0] + time) % 360) / 360
+              materials[i].color.setHSL(h, color[1], color[2])
+          }
+
+          renderer.render(scene, camera)
+      }
+    </script>
+
+  </div>
+
 <div class="home">
 
   <!-- <div class="category-container">
@@ -20,7 +156,7 @@ layout: default
       </h2>
       {% if post.subtitle %}
       <div class="post-sub">{{ post.subtitle | truncate: 120 }}</div>
-      <a class="post-more" href="{{ post.url | prepend: site.baseurl }}">Read More</a>
+      <a class="post-more" href="{{ post.url | prepend: site.baseurl }}">Ver mais</a>
       {% endif %}
     </div>
     {% endfor %}

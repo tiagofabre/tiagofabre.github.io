@@ -49,3 +49,11 @@ $on-laptop:        800px;
         "layout",
         "syntax-highlighting"
 ;
+
+.about-container {
+    display: inline-flex;
+}
+
+.about-description {
+    margin-left: 50px;
+}
