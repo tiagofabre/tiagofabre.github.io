@@ -1,0 +1,92 @@
+---
+layout: post
+title:  "Property based test"
+date:	2020-03-21 00:00:00 -0300
+subtitle: "Encontrando bugs like a boss"
+comments: true
+categories: "computer-science, test, math"
+---
+  
+# Introdução a Testes baseados em propriedade
+
+Mesmo com testes unitários seu codigo ainda pode ter bugs. Então como encontrar os bugs do código que se escreve?
+
+## Testar as propriedades do seu código:
+
+Encontrar as propiedades de uma função faz com que você pense no problema de uma forma diferente já que ao invés de pensar em exemplos de input você pensa em tipos de dados e intervalos de valores aceitaveis de deixa que uma ferramenta gere dados pra você de uma forma aleatória centenas ou milhares de vezes. 
+
+Imagine um mundo onde cada função que escrevemos possui um teste que valida todas as inputs possíves. Exemplo: Se tenho uma função que recebe um valor inteiro. Para ele existiria um teste onde todos os inteiros exsitentes fossem passados pra esta função, verificando que ela funciona com todos esses valores, inclusive valores negativos, zero, +infinito, -infinito e NaN.
+
+## Problema
+
+Seria o mundo ideal testar suas funções com todas as possibildiades possíveis, porém gerar todos os valores é algo muito demorado e quando feito para todas as propriedades de uma função e para centenas ou milhares de funções temos essa prática inviabilisada. Mas o que poderiamos fazer?
+
+Daria pra chegar próximo a a isso se a utilizando valores aleatórios gerados centenas ou até milhares de vezes.
+
+
+## Como fazer?
+
+- Definir os valores aleatórios que devem ser gerados
+- Defnir uma expressão que valida o teste
+- Definir o numero de testes a serem gerados
+
+## Propriedades comuns
+
+Quando temos uma função que possui propriedades matemáticas podemos aplicar algumas propriedades como as descritas a seguir:
+
+- Associative
+    - a + (b + c) = (a + b) + c
+    - hashmap1.merge(hashmap2.merge(hashmap3)) = (hashmap.merge(hashmap2)).merge(hashmap3)
+    - list1.append(list2.append(list3)) = (list1.append(list2).append(list3)
+    - Math.max(Math.max(a, b), c) = Math.max(a, Math.max(b, c))
+    - (bool1 && bool2) && bool3 = bool1 && (bool2 && bool3)
+
+- Commutative
+    - a + b = b + a
+    - users.Sort().Filter(x => !x.IsAdmin) = (users.Filter(x => !x.IsAdmin)).Sort() (relocated from Associative)
+    - image.flipX().flipY() = image.flipY().flipX()
+    - Math.max(a,b) = Math.max(b,a)
+    - bool1 && bool2 = bool2 && bool1
+    - average(a,b) = average(b, a)
+
+- Distributive
+    - a(b + c) = ab + ac
+    - title.ToUpper() + author.ToUpper() = (title + author).ToUpper()
+
+- Idempotent
+    - f(a) = f(f(a))
+    - Math.abs(x) = Math.abs(Math.abs(x))
+    - hashmap.merge({a:1}) = hashmap.merge({a:1}).merge({a:1})
+    - title.Trim() = title.Trim().Trim()
+    - list.Sort() = list.Sort().Sort()
+
+- Identity
+    - f(a, i) where i is identity value of f = a
+    - a + 0 = a
+    - a * 1 = a
+    - userNames.append([]) = userNames
+    - hashmap.merge({}) = hashmap
+    - bool1 && true = bool1
+
+- Zero
+    - f(a, z) where z is zero value of f = z
+    - a * 0 = 0
+    - intersect(valueSet, emptySet) = emptySet
+    - bool1 && false = false
+
+- Bilbo
+    - list = list.Reverse().Reverse()
+    - obj = JSON.parse(JSON.stringify(obj))
+
+- No unexcpeted change
+    - list.Length = list.Sort().Length
+
+- Hard to Prove, Easy to Verify
+    - list.sort()
+          .reduce((acumulador, valorAtual, indice, array) => {
+            const proximo = array[indice+1];
+            if(indice < array.length-1)
+                acumulador.push(valorAtual < proximo)
+            return acumulador
+            }, [])
+          .every(x => x === true)
