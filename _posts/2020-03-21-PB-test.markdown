@@ -265,6 +265,7 @@ Quando temos uma função que possui propriedades matemáticas podemos aplicar a
             .every(x => x)`
 
     TODO: 
+    - Growing
     - Shrinking
     - Exemplos de propriedades em clojure
     - Statefull property based tests
