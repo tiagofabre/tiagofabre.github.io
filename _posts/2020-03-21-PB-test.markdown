@@ -6,7 +6,140 @@ subtitle: "Encontrando bugs like a boss"
 comments: true
 categories: "computer-science, test, math"
 ---
-  
+
+<style>
+.center {
+    margin: 0 auto;
+ }   
+
+.example-bugs {
+    width: 400px;
+    height: 400px;
+}
+</style>
+
+<script>
+
+
+let sketch = function(p) {
+    function randomPosition(max) {
+        return Math.random() * max * 2;
+    }
+    
+    p.setup = function(){
+        
+        // Global vars
+        p.createCanvas(400, 400)
+    }
+
+    p.draw = function(){
+        p.strokeWeight(5)
+
+        // Testes points
+        p.background(220)
+        p.stroke(p.color(60, 60, 60))
+
+        for (let i = 0; i < 200; i++) {
+            p.point(randomPosition(i), randomPosition(i))
+        }
+
+        // Bug
+        p.strokeWeight(30)
+        p.stroke(p.color(240, 40, 40, 200))  
+        p.point(25, 123)
+
+        p.strokeWeight(30)
+        p.stroke(p.color(240, 40, 40, 200))
+        p.point(175, 83)
+
+        p.frameRate(1)
+    }
+}
+
+new p5(sketch, 'test-bugs');
+</script>
+
+<script>
+let sketchExamples = function(p) {
+
+    function randomPosition(max) {
+    return Math.random() * max * 0.4;
+    }
+
+    p.setup = function(){
+        
+        // Global vars
+        p.createCanvas(400, 400)
+    }
+
+    p.draw = function(){
+        p.strokeWeight(5)
+
+        // Testes points
+        p.background(220)
+        p.stroke(p.color(60, 60, 60))
+
+        for (let i = 0; i < 1000; i++) {
+            p.point(randomPosition(i), randomPosition(i))
+        }
+
+        // Bug
+        p.strokeWeight(30)
+        p.stroke(p.color(240, 40, 40, 200))  
+        p.point(25, 123)
+
+        p.strokeWeight(30)
+        p.stroke(p.color(240, 40, 40, 200))
+        p.point(175, 83)
+
+        p.frameRate(1)
+    }
+}
+
+new p5(sketchExamples, 'test-bugs-n-examples');
+</script>
+
+<script>
+let sketchCustomResize = function(p) {
+
+    function randomPosition(i, max) {
+        return Math.random() * max * 0.4;
+    }
+
+    p.setup = function(){
+        
+        // Global vars
+        p.createCanvas(400, 400)
+    }
+
+    p.draw = function(){
+        p.strokeWeight(5)
+
+        // Testes points
+        p.background(220)
+        p.stroke(p.color(60, 60, 60))
+
+        let max = 1000
+        for (let i = 0; i < max; i++) {
+            p.point(randomPosition(i, max), randomPosition(i, max))
+        }
+
+        // Bug
+        p.strokeWeight(30)
+        p.stroke(p.color(240, 40, 40, 200))  
+        p.point(25, 123)
+
+        p.strokeWeight(30)
+        p.stroke(p.color(240, 40, 40, 200))
+        p.point(175, 83)
+
+        p.frameRate(1)
+    }
+}
+
+new p5(sketchCustomResize, 'test-bugs-custom-resize');
+</script>
+
 # Introdução a Testes baseados em propriedade
 
 Mesmo com testes unitários seu codigo ainda pode ter bugs. Então como encontrar os bugs do código que se escreve?
@@ -30,6 +163,45 @@ Daria pra chegar próximo a a isso se a utilizando valores aleatórios gerados c
 - Defnir uma expressão que valida o teste
 - Definir o numero de testes a serem gerados
 
+
+Exemplo:
+
+Serão gerados 200 valores entre 0 e 400 (pra facilitar a vizualização)
+
+<div >
+    <div id="test-bugs" class="example-bugs center"></div>
+    <center>
+        <i>Exemplo de bugs em determinadas areas e os testes cobrindo/encontrando os bugs</i>
+    </center>
+</div>
+
+O exemplo acima é um possível exemplo de uma função que recebe dois valores numéricos e que em determinados valores a função não se comporta como o esperado (areas em vermelho). Com isso é possivel ver que jogando valores aleatórios é possivel gerar valores que cobrem area e os bugs são encontrados.
+
+Também é possível ver que em determinados momentos o bug não é encotnrado (nenhum ponto preto intercepta a area vermelha). Uma forma de melhorar isso e fazer com que se encontre os bugs é aumentar a quantidades de valores que vão testar a função.
+
+<div>
+    <div id="test-bugs-n-examples" class="example-bugs center"></div>
+    <center>
+        <i class="center">Aumentando o numero de testes</i>
+    </center>
+</div>
+
+Aumentando o numero de testes podemos ver melhor uma contrantração grande de valores no canto superior esquredo. Isso acontece devido ao size dos valores aleatórios que em muitos frameworks sorteiam numeros com base no numero de testes a serem gerados. como na função abaixo:
+
+```
+(fn [index] (choose 0 index)) ; index quer dizer o numero de testes que ja forma gerados
+```
+
+Uma forma de resovler isso é mudando o size da função como ilustra o exemplo abaixo:
+
+<div class="center">
+    <div id="test-bugs-custom-resize" class="example-bugs center"></div>
+    <center>
+        <i>Exemplo de um resize customizado</i>
+    </center>
+</div>
+
+No clojure `test.check` podemos fazer isso através da função [resize](https://github.com/clojure/test.check/blob/master/doc/growth-and-shrinking.md#genresize)
 ## Propriedades comuns
 
 Quando temos uma função que possui propriedades matemáticas podemos aplicar algumas propriedades como as descritas a seguir:
@@ -93,3 +265,8 @@ Quando temos uma função que possui propriedades matemáticas podemos aplicar a
             }, [])
           .every(x => x)
     ```
+
+    TODO: 
+    - Shrinking
+    - Exemplos de propriedades em clojure
+    - Statefull property based tests
