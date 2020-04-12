@@ -148,7 +148,7 @@ Mesmo com testes unitários seu codigo ainda pode ter bugs. Então como encontra
 
 Encontrar as propiedades de uma função faz com que você pense no problema de uma forma diferente já que ao invés de pensar em exemplos de input você pensa em tipos de dados e intervalos de valores aceitaveis de deixa que uma ferramenta gere dados pra você de uma forma aleatória centenas ou milhares de vezes. 
 
-Imagine um mundo onde cada função que escrevemos possui um teste que valida todas as inputs possíves. Exemplo: Se tenho uma função que recebe um valor inteiro. Para ele existiria um teste onde todos os inteiros exsitentes fossem passados pra esta função, verificando que ela funciona com todos esses valores, inclusive valores negativos, zero, +infinito, -infinito e NaN.
+Imagine um mundo onde cada função que escrevemos possui um teste que valida todas as inputs possíves. Exemplo: Se tenho uma função que recebe um valor inteiro. Para ele existiria um teste onde todos os inteiros exsitentes fossem passados pra esta função, verificando que ela funciona com todos esses valores, inclusive valores `negativos`, `zero`, `+infinito`, `-infinito` e `NaN`.
 
 ## Problema
 
@@ -197,7 +197,7 @@ Uma forma de resovler isso é mudando o size da função como ilustra o exemplo 
 <div class="center">
     <div id="test-bugs-custom-resize" class="example-bugs center"></div>
     <center>
-        <i>Exemplo de um resize customizado</i>
+        <i>Exemplo de um size customizado</i>
     </center>
 </div>
 
@@ -255,16 +255,14 @@ Quando temos uma função que possui propriedades matemáticas podemos aplicar a
 
 - Hard to Prove, Easy to Verify
     
-    ```javascript
-    - list.sort()
-          .reduce((acumulador, valorAtual, indice, array) => {
+    - `list.sort()
+            .reduce((acumulador, valorAtual, indice, array) => {
             const proximo = array[indice+1];
             if(indice < array.length-1)
                 acumulador.push(valorAtual < proximo)
             return acumulador
             }, [])
-          .every(x => x)
-    ```
+            .every(x => x)`
 
     TODO: 
     - Shrinking
