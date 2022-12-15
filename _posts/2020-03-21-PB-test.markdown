@@ -2,7 +2,7 @@
 layout: post
 title:  "Property based test"
 date:	2020-03-21 00:00:00 -0300
-subtitle: "Encontrando bugs like a boss"
+subtitle: "Melhorando a qualidade dos testes"
 comments: true
 categories: "computer-science, test, math"
 ---
@@ -142,42 +142,42 @@ new p5(sketchCustomResize, 'test-bugs-custom-resize');
 
 # Introdução a Testes baseados em propriedade
 
-Mesmo com testes unitários seu codigo ainda pode ter bugs. Então como encontrar os bugs do código que se escreve?
+Mesmo com testes unitários, seu código ainda pode ter bugs. Então como encontrar os bugs do código que se escreve?
 
 ## Testar as propriedades do seu código:
 
-Encontrar as propiedades de uma função faz com que você pense no problema de uma forma diferente já que ao invés de pensar em exemplos de input você pensa em tipos de dados e intervalos de valores aceitaveis de deixa que uma ferramenta gere dados pra você de uma forma aleatória centenas ou milhares de vezes. 
+Encontrar as propriedades de uma função faz com que você pense no problema de uma forma diferente, já que ao invés de pensar em exemplos de input você pensa em tipos de dados e intervalos de valores aceitáveis de deixa que uma ferramenta gere dados para você de uma forma aleatória, centenas ou milhares de vezes.
 
-Imagine um mundo onde cada função que escrevemos possui um teste que valida todas as inputs possíves. Exemplo: Se tenho uma função que recebe um valor inteiro. Para ele existiria um teste onde todos os inteiros exsitentes fossem passados pra esta função, verificando que ela funciona com todos esses valores, inclusive valores `negativos`, `zero`, `+infinito`, `-infinito` e `NaN`.
+Imagine um mundo onde cada função que escrevemos possui um teste que valida todas os inputs possíveis. Exemplo: Se tenho uma função que recebe um valor inteiro. Para ele existiria um teste onde todos os inteiros existentes fossem passados para esta função, verificando que ela funciona com todos esses valores, inclusive valores `negativos`, `zero`, `+infinito`, `-infinito` e `NaN`.
 
 ## Problema
 
-Seria o mundo ideal testar suas funções com todas as possibildiades possíveis, porém gerar todos os valores é algo muito demorado e quando feito para todas as propriedades de uma função e para centenas ou milhares de funções temos essa prática inviabilisada. Mas o que poderiamos fazer?
+Seria o mundo ideal testar suas funções com todas as possibilidades possíveis, porém gerar todos os valores é algo muito demorado e quando feito para todas as propriedades de uma função e para centenas ou milhares de funções temos essa prática inviabilizada. Mas o que poderíamos fazer?
 
-Daria pra chegar próximo a a isso se a utilizando valores aleatórios gerados centenas ou até milhares de vezes.
+Daria para chegar próximo à isso se a utilizando valores aleatórios gerados centenas ou até milhares de vezes.
 
 
 ## Como fazer?
 
 - Definir os valores aleatórios que devem ser gerados
-- Defnir uma expressão que valida o teste
-- Definir o numero de testes a serem gerados
+- Definir uma expressão que valida o teste
+- Definir o número de testes a serem gerados
 
 
 Exemplo:
 
-Serão gerados 200 valores entre 0 e 400 (pra facilitar a vizualização)
+Serão gerados 200 valores entre 0 e 400 (pra facilitar a visualização)
 
 <div >
     <div id="test-bugs" class="example-bugs center"></div>
     <center>
-        <i>Exemplo de bugs em determinadas areas e os testes cobrindo/encontrando os bugs</i>
+        <i>Exemplo de bugs em determinadas áreas e os testes cobrindo/encontrando os bugs</i>
     </center>
 </div>
 
-O exemplo acima é um possível exemplo de uma função que recebe dois valores numéricos e que em determinados valores a função não se comporta como o esperado (areas em vermelho). Com isso é possivel ver que jogando valores aleatórios é possivel gerar valores que cobrem area e os bugs são encontrados.
+O exemplo acima é um possível exemplo de uma função que recebe dois valores numéricos e que em determinados valores a função não se comporta como o esperado (áreas em vermelho). Com isso é possível ver que jogando valores aleatórios é possível gerar valores que cobrem área e os bugs são encontrados.
 
-Também é possível ver que em determinados momentos o bug não é encotnrado (nenhum ponto preto intercepta a area vermelha). Uma forma de melhorar isso e fazer com que se encontre os bugs é aumentar a quantidades de valores que vão testar a função.
+Também é possível ver que em determinados momentos o bug não é encontrado (nenhum ponto preto intercepta a área vermelha). Uma forma de melhorar isso e fazer com que se encontre os bugs é aumentar a quantidades de valores que vão testar a função.
 
 <div>
     <div id="test-bugs-n-examples" class="example-bugs center"></div>
@@ -186,13 +186,13 @@ Também é possível ver que em determinados momentos o bug não é encotnrado (
     </center>
 </div>
 
-Aumentando o numero de testes podemos ver melhor uma contrantração grande de valores no canto superior esquredo. Isso acontece devido ao size dos valores aleatórios que em muitos frameworks sorteiam numeros com base no numero de testes a serem gerados. como na função abaixo:
+Aumentando o número de testes podemos ver melhor uma concentração grande de valores no canto superior esquerdo. Isso acontece devido ao size dos valores aleatórios que em muitos frameworks sorteiam números com base no número de testes a serem gerados. Como na função abaixo:
 
 ```
 (fn [index] (choose 0 index)) ; index quer dizer o numero de testes que ja forma gerados
 ```
 
-Uma forma de resovler isso é mudando o size da função como ilustra o exemplo abaixo:
+Uma forma de resolver isso é mudando o size da função como ilustra o exemplo abaixo:
 
 <div class="center">
     <div id="test-bugs-custom-resize" class="example-bugs center"></div>
@@ -201,71 +201,4 @@ Uma forma de resovler isso é mudando o size da função como ilustra o exemplo 
     </center>
 </div>
 
-No clojure `test.check` podemos fazer isso através da função [resize](https://github.com/clojure/test.check/blob/master/doc/growth-and-shrinking.md#genresize)
-## Propriedades comuns
-
-Quando temos uma função que possui propriedades matemáticas podemos aplicar algumas propriedades como as descritas a seguir:
-
-- Associative
-    - a + (b + c) = (a + b) + c
-    - hashmap1.merge(hashmap2.merge(hashmap3)) = (hashmap.merge(hashmap2)).merge(hashmap3)
-    - list1.append(list2.append(list3)) = (list1.append(list2).append(list3)
-    - Math.max(Math.max(a, b), c) = Math.max(a, Math.max(b, c))
-    - (bool1 && bool2) && bool3 = bool1 && (bool2 && bool3)
-
-- Commutative
-    - a + b = b + a
-    - users.Sort().Filter(x => !x.IsAdmin) = (users.Filter(x => !x.IsAdmin)).Sort() (relocated from Associative)
-    - image.flipX().flipY() = image.flipY().flipX()
-    - Math.max(a,b) = Math.max(b,a)
-    - bool1 && bool2 = bool2 && bool1
-    - average(a,b) = average(b, a)
-
-- Distributive
-    - a(b + c) = ab + ac
-    - title.ToUpper() + author.ToUpper() = (title + author).ToUpper()
-
-- Idempotent
-    - f(a) = f(f(a))
-    - Math.abs(x) = Math.abs(Math.abs(x))
-    - hashmap.merge({a:1}) = hashmap.merge({a:1}).merge({a:1})
-    - title.Trim() = title.Trim().Trim()
-    - list.Sort() = list.Sort().Sort()
-
-- Identity
-    - f(a, i) where i is identity value of f = a
-    - a + 0 = a
-    - a * 1 = a
-    - userNames.append([]) = userNames
-    - hashmap.merge({}) = hashmap
-    - bool1 && true = bool1
-
-- Zero
-    - f(a, z) where z is zero value of f = z
-    - a * 0 = 0
-    - intersect(valueSet, emptySet) = emptySet
-    - bool1 && false = false
-
-- Bilbo
-    - list = list.Reverse().Reverse()
-    - obj = JSON.parse(JSON.stringify(obj))
-
-- No unexcpeted change
-    - list.Length = list.Sort().Length
-
-- Hard to Prove, Easy to Verify
-    
-    - `list.sort()
-            .reduce((acumulador, valorAtual, indice, array) => {
-            const proximo = array[indice+1];
-            if(indice < array.length-1)
-                acumulador.push(valorAtual < proximo)
-            return acumulador
-            }, [])
-            .every(x => x)`
-
-    TODO: 
-    - Growing
-    - Shrinking
-    - Exemplos de propriedades em clojure
-    - Statefull property based tests
+No Clojure `test.check` podemos fazer isso através da função [resize](https://github.com/clojure/test.check/blob/master/doc/growth-and-shrinking.md#genresize)
