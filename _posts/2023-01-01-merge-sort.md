@@ -1,10 +1,9 @@
 ---
 layout: post
 title: "Merge sort"
-date: 2023-01-01 10:00:00 -0300
 subtitle: "Understanding the algorithm"
 comments: true
-categories: "algorithms, english"
+categories: "algorithms english"
 ---
 
 # Definition

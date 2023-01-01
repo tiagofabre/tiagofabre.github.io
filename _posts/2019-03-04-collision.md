@@ -4,7 +4,7 @@ title:  "Detecção de colisão"
 date:	2019-03-04 16:14:00 -0200
 subtitle: "Simulação de detecção de colisão"
 comments: true
-categories: "gamedev, computation, portuguese"
+categories: "gamedev portuguese"
 ---
 
 ## Sobreposição de objetos retangulares

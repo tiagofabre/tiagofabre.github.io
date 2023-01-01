@@ -4,7 +4,7 @@ title:  "Vetores e matrizes"
 date:	2018-12-03 08:50:00 -0300
 subtitle: "Revisão de vetores e matrizes"
 comments: true
-categories: "machine-learning, data-science, math, portuguese"
+categories: "data-science math portuguese"
 ---
 
 
