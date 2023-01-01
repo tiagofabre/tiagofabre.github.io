@@ -12,7 +12,7 @@ Designed by John von Neumann in 1945, mergesort or merge sort is a divide and co
 
 # Code
 
-```Java
+```java
 public class Main {
     
     static void merge(int[] arr, int left, int mid, int right) {
