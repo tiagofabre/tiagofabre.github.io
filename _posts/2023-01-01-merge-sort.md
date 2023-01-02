@@ -158,7 +158,7 @@ for(int i=0; i < temp.length; i++)
 
 ## Time 
 
-The splitting phase generates `O(log n)` levels in a recurrent tree
+The splitting phase generates `O(log n)` levels in a recurrence tree
 
 ```
 log2(8) = 3
