@@ -129,8 +129,11 @@ while(rightIndex <= right)
     temp[tempIndex++] = arr[rightIndex++];
 ```
 
+Merge phase example:
+
 ```
-(6) -> (6)
+// arrays with only one element are already sorted and merge phase won't change them
+(6) -> (6) 
 (5) -> (5)
 (12) -> (12)
 (10) -> (10)
