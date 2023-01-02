@@ -4,7 +4,7 @@
 .highlight {
     background: #fff;
     overflow-x: auto;
-    padding: 15px;
+    padding: 10px;
     font-size: 14px;
 
     @extend %vertical-rhythm;
@@ -72,4 +72,17 @@
     .vg    { color: #008080 } // Name.Variable.Global
     .vi    { color: #008080 } // Name.Variable.Instance
     .il    { color: #099 } // Literal.Number.Integer.Long
+}
+
+code.language-plaintext.highlighter-rouge {
+  border: 1px solid #d3dce6;
+  padding: 0 4px;
+  border-radius: 4px;
+  font-style: normal;
+  font-family: "Droid Sans Mono","Inconsolata","Menlo","Consolas","Bitstream Vera Sans Mono","Courier",monospace;
+  display: inline-block;
+  line-height: 24px;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0 2px;
 }

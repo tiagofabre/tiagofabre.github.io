@@ -14,3 +14,5 @@ defaults:
       path: "assets/img"
     values:
       image: true
+
+permalink: /posts/:title:output_ext

@@ -188,7 +188,7 @@ Também é possível ver que em determinados momentos o bug não é encontrado (
 
 Aumentando o número de testes podemos ver melhor uma concentração grande de valores no canto superior esquerdo. Isso acontece devido ao size dos valores aleatórios que em muitos frameworks sorteiam números com base no número de testes a serem gerados. Como na função abaixo:
 
-```
+``` clojure
 (fn [index] (choose 0 index)) ; index quer dizer o numero de testes que ja forma gerados
 ```
 
