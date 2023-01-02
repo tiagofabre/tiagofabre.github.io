@@ -14,21 +14,24 @@ categories: "electron portuguese"
 
 Requisitos:
 
-    npm init
-    npm install electron -g
+```bash
+npm init
+npm install electron -g
+```
 
 Estrutura do projeto
 
-    your-app/
-	├── package.json
-	├── main.js
-	└── index.html
+```
+  your-app/
+├── package.json
+├── main.js
+└── index.html
+```
 
  - main.js - Contem a inicialização da window e importa o html para renderização
 
 
- 		{% highlight javascript %}
-
+```javascript
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
@@ -84,13 +87,12 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
-		{% endhighlight %}
-
+```
 
  - index.html - Contem apenas a view da aplicação com os componentes de renderização
 
 
- 	{% highlight html %}
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -104,11 +106,13 @@ app.on('activate', () => {
     and Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
-	{% endhighlight %}
+```
 
 Para iniciar a aplicação utiliza-se
 
-    electron main.js
+```bash
+electron main.js
+```
 
 Para fazer o build para as plataformas desejadas a comunidade do electron recomenda a utilziação do [electron-builder](https://github.com/electron-userland/electron-builder) que assim como outras ferramentas podem ser encontradas em [Electron Community](http://electron.atom.io/community/)
 

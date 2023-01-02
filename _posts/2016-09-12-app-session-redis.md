@@ -22,17 +22,19 @@ Uma forma de fazer com que outro servidor tenha acesso a esse objeto da sessão 
 
 O Express através do express-session faz todo esse processo de forma simples apenas adicionando um 'RedisStore' no field 'store' da configuração do express-session
 
-    var session = require('express-session');
-    var RedisStore = require('connect-redis')(session);
+```javascript
+var session = require('express-session');
+var RedisStore = require('connect-redis')(session);
 
-    var sessionMiddleware = session({
-      secret: secret,
-      store: new RedisStore({client: clientRedis}),
-      resave: false,
-      saveUninitialized: true
-    })
+var sessionMiddleware = session({
+  secret: secret,
+  store: new RedisStore({client: clientRedis}),
+  resave: false,
+  saveUninitialized: true
+})
 
-  app.use(sessionMiddleware)
+app.use(sessionMiddleware)
+```
 
 ## Referências
 [express-session](https://github.com/expressjs/session)

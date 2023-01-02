@@ -8,27 +8,26 @@ categories: "web-dev portuguese"
 ---
 
 ### Problema
-<ul>
-<li>O carregamento dos scripts no HTML estão bloqueando a renderização</li>
-<li>A execução do script acontece antes mas deveria ser após a renderização</li>
-</ul>
 
-A importação de 'scripts' no HTML acontece através da tag `script` ([Mais informações][mdn-script]) Porém a importação de múltiplos scripts causa o problema de renderização bloqueante ou 'render blocking'
+- O carregamento dos scripts no HTML estão bloqueando a renderização
+- A execução do script acontece antes mas deveria ser após a renderização
 
-{% highlight html %}
+A importação de 'scripts' no HTML acontece através da tag `script` ([Mais informações][mdn-script]) Porém a importação de múltiplos scripts causa o problema de renderização bloqueante ou `render blocking'
+
+```html
 <script src="exemplo1.js"></script>
 <script src="exemplo2.js"></script>
 <script src="exemplo3.js"></script>
-{% endhighlight %}
+```
 
 ### Solução
 Com o HTML5 é possível resolver este problema através dos atributos `async` e `defer` onde o `async` faz com que o script seja carregado em paralelo com os demais e o `defer` faz com que o script seja executado apena após a renderização do documento.
-
-{% highlight html %}
+`
+```html
 <script async defer src="exemplo1.js"></script>
 <script async defer src="exemplo2.js"></script>
 <script async defer src="exemplo3.js"></script>
-{% endhighlight %}
+```
 
 ### Relacionados
 

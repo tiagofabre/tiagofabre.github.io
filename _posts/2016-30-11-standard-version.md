@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Standard version"
-title:  "Atualização automática do changelog em projetos node"
+subtitle:  "Atualização automática do changelog em projetos node"
 date:	2016-11-30 20:35:09 -0300
 comments: true
 categories: "web-dev portuguese" 
@@ -26,26 +26,29 @@ gera o arquivo de `changelog` fazendo com que o desenvolvedor apenas tenha que a
 
 Instalar o standard version com dependência de desenvolvedor
 
-
-    npm i --save-dev standard-version
-
+```bash
+npm i --save-dev standard-version
+```
 
 Adicionar um `npm run script` no `package.json`
 
-
-    {
-      "scripts": {
-        "release": "standard-version"
-      }
-    }
+```json
+{
+  "scripts": {
+    "release": "standard-version"
+  }
+}
+```
     
 Para criar/atualizar o arquivo de `changelog` apenas precisamos executar o comando `npm run release`
 que um arquivo `CHANGELOG.md` será criado na raiz do projeto.
 
 Para que o `standard-version` identifique as features e correções de bugs as mensagens de commit precisam dos seguintes prefixos:
 
-    fix(Usuários): Corrigido o bug ao entrar um novo usuário no momento X
-    feat(Autenticação): Autenticação do usuário através da JWT
+```
+fix(Usuários): Corrigido o bug ao entrar um novo usuário no momento X
+feat(Autenticação): Autenticação do usuário através da JWT
+```
 
  que pode ser utilizado atraves de:
  
