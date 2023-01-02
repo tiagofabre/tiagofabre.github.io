@@ -29,3 +29,89 @@ categories: "web-dev english"
 }
 </style>
 ```
+## first-child
+```html
+<ul>
+@  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+```
+```css
+li:first-child
+```
+
+## Not
+
+```html
+<div>
+@  <p></p>
+  <p class="foo"></p>
+@  <p></p>
+@  <p></p>
+</div>
+
+```
+```css
+p:not(.foo)
+```
+
+## nth-child
+
+```html
+<ul>
+  <li></li>
+  <li></li>
+@  <li></li>
+  <li></li>
+@  <li></li>
+  <li></li>
+@  <li></li>
+</ul>
+
+```
+```css
+li:nth-child(2n+3)
+```
+## all children of a div
+
+```html
+<div>
+@  <span></span>
+@  <p>
+    <a></a>
+    <span></span>
+  </p>
+</div>
+```
+```css
+div > *
+```
+
+## sibling
+
+```html
+<div>
+  <span></span>
+@  <p>
+    <a></a>
+    <span></span>
+  </p>
+</div>
+```
+```css
+span ~ p
+```
+## by atribute
+
+```html
+<div data-item="abc">
+<div data-item="cde">
+```
+
+```css
+[data-item]
+
+[data-item~="abc"]
+```
