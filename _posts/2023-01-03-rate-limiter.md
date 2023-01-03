@@ -66,6 +66,7 @@ class LeakingBucket {
     ArrayDequeue<Operation> queue;
 
     TokenBucket(int bucketSize) {
+        maxSize = bucketSize;
         queue = new ArrayDequeue<Operation>(bucketSize);
     }
 
@@ -98,8 +99,8 @@ class FixedWindowCounter {
 
     FixedWindowCounter(int threshold) {
         this.threshold = threshold;
-        int newPeriod = 12 // TODO check how to get the current minute
         counter = 0;
+        int newPeriod = 12 // TODO check how to get the current minute
         period = newPeriod;
     }
 
@@ -133,6 +134,7 @@ class SlidingWindowLog {
 
     SlidingWindowLog(int maxOperations, int period) {
         this.period = period;
+        this.maxOperations = maxOperations;
         timestamps = new TreeSet<Timestamp>((a, b) -> b.compareTo(a));
     }
 
