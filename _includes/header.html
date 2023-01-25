@@ -3,7 +3,7 @@
   <div class="wrapper">
 
     {% if my_page.title %}
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title | capitalize}}</a>
     {% else %}
     <a class="site-title" href="{{ site.baseurl }}/">Home</a>
     {% endif %}
@@ -19,8 +19,8 @@
 
       <div class="trigger">
         {% for my_page in site.pages %}
-          {% if my_page.title %}
-          <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+          {% if my_page.title | capitalize %}
+          <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title | capitalize }}</a>
           {% endif %}
         {% endfor %}
       </div>

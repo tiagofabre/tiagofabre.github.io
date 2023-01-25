@@ -3,7 +3,8 @@ layout: post
 title: "Rate limiter"
 subtitle: "Common algorithms"
 comments: true
-categories: "system-design english"
+categories: "system-design"
+tags: "english"
 ---
 
 # Definition

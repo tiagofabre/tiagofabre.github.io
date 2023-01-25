@@ -3,7 +3,8 @@ layout: post
 title: "Merge sort"
 subtitle: "Understanding the algorithm"
 comments: true
-categories: "algorithms english"
+categories: "algorithms"
+tags: "english"
 ---
 
 # Definition

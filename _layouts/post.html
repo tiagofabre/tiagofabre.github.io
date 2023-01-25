@@ -3,9 +3,9 @@ layout: default
 ---
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <title class="post-title" itemprop="name headline">{{% if page.title %}}</title>
+    <title class="post-title" itemprop="name headline">{{% if page.title | capitalize %}}</title>
     <p class="post-meta">
-      <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+      <h1 class="post-title" itemprop="name headline">{{ page.title | capitalize }}</h1>
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {{ page.date | date: "%b %-d, %Y" }}
       </time>

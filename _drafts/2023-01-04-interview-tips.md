@@ -3,7 +3,8 @@ layout: post
 title: "Interview tips"
 subtitle: ""
 comments: true
-categories: "interview english"
+categories: "interview"
+tags: "english"
 ---
 
 # Salary negotiation

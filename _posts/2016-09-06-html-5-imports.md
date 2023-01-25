@@ -4,7 +4,8 @@ title:  "HTML5 Imports"
 subtitle:  "Entendendo o fluxo de importação de scripts"
 date:   2016-09-06 19:19:34 -0300
 comments: true
-categories: "web-dev portuguese"
+categories: "web-development"
+tags: "portuguese"
 ---
 
 ### Problema

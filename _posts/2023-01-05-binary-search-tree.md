@@ -3,7 +3,8 @@ layout: post
 title: "Binary search tree"
 subtitle: "Introductory overview"
 comments: true
-categories: "algorithms data-structures english"
+categories: "algorithms data-structures"
+tags: "english"
 ---
 
 # Binary Search Tree (BST)

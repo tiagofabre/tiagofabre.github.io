@@ -4,7 +4,8 @@ title:  "Neuronio artificial"
 subtitle:  "Iniciando uma rede neural"
 date:   2016-11-27 19:19:34 -0300
 comments: true
-categories: "data-science fundamentals portuguese"
+categories: "data-science fundamentals"
+tags: "portuguese"
 ---
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML"></script>
 

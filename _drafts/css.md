@@ -3,7 +3,8 @@ layout: post
 title: "CSS selectors"
 subtitle: ""
 comments: true
-categories: "web-dev english"
+categories: "web-development"
+tags: "english"
 ---
 
 # Definition

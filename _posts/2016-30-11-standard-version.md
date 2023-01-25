@@ -4,7 +4,8 @@ title:  "Standard version"
 subtitle:  "Atualização automática do changelog em projetos node"
 date:	2016-11-30 20:35:09 -0300
 comments: true
-categories: "web-dev portuguese" 
+categories: "web-development"
+tags: "portuguese" 
 ---
 
 ## Problema

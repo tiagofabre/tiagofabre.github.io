@@ -4,7 +4,8 @@ title:  "Property based test"
 date:	2020-03-21 00:00:00 -0300
 subtitle: "Melhorando a qualidade dos testes"
 comments: true
-categories: "computer-science test math portuguese"
+categories: "computer-science test math"
+tags: "portuguese"
 ---
 
 <style>

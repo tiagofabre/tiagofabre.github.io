@@ -57,3 +57,16 @@ $on-laptop:        800px;
 .about-description {
     margin-left: 50px;
 }
+
+.category-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    row-gap: 10px;
+    column-gap: 20px;
+}
+
+.category-item {
+    justify-content: space-around;
+    
+}

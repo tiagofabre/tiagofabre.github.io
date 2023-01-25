@@ -159,12 +159,12 @@ layout: default
   </div>
 
 <div class="home">
-
   <!-- <div class="category-container">
-    <button class="category-item" onclick="changeCategory(`gamedev`)">Gamedev</button>
-    <button class="category-item" onclick="changeCategory(`math`)">Matemática</button>
-    <button class="category-item" onclick="changeCategory(`computation`)">Computação</button>
-    <button class="category-item" onclick="changeCategory(`machine-learning`)">Machine learning</button>
+    {% for cat in site.categories %} 
+      {% if cat[1].size > 1 %}
+      <button class="category-item" onclick="changeCategory(`{{ cat[0] }}`)">{{ cat[0] | capitalize }} ({{ cat[1].size }})</button>
+      {% endif %}
+    {% endfor %}
   </div> -->
   
   <div class="grid" >
@@ -172,11 +172,15 @@ layout: default
     <div class="grid-item" data-category="{{ post.categories }}">
       <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
       <h2>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | capitalize }}</a>
       </h2>
       {% if post.subtitle %}
       <div class="post-sub">{{ post.subtitle | truncate: 120 }}</div>
-      <a class="post-more" href="{{ post.url | prepend: site.baseurl }}">Ver mais</a>
+      <a class="post-more" href="{{ post.url | prepend: site.baseurl }}">
+        {% if post.tags contains "english" %}Details
+        {% else %}Ver mais
+        {% endif %}
+      </a>
       {% endif %}
     </div>
     {% endfor %}
